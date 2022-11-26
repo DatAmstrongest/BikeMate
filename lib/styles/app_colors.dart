@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static const logoColor = Color.fromRGBO(2, 69, 232, 100);
+
+  static const navbarIconColor = Colors.black;
+  static const navbarSelectedIconColor = Colors.white;
+
   static const backgroundColor1 = Color.fromRGBO(209, 240, 222, 100);
   static const backgroundColor2 = Color.fromRGBO(138, 237, 179, 100);
   static const navbarBackgroundColor = Color.fromRGBO(2, 135, 242, 60);
@@ -8,6 +13,7 @@ class AppColors {
 
   static const loginTextColor = Color.fromRGBO(2, 69, 232, 100);
   static const standardTextColor = Colors.black;
+  static const navbarTextColor = Colors.black;
   static const navbarSelectedTextColor = Colors.white;
 
   static const loginButtonColor = Color.fromRGBO(2, 232, 147, 100);

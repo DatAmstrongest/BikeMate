@@ -11,9 +11,12 @@ class Images {
     semanticsLabel: 'A red up arrow',
   );
 
+  //****** Images ******//
   static Widget profileImage1 = Image.asset(path + "profilePhoto1.jpg");
   static Widget profileImage2 = Image.asset(path + "profilePhoto2.jpg");
   static Widget postImage = Image.asset(path + "postPhoto.jpg");
+
+  //****** Icons ******//
 
   static const homeIcon = Icon(
     Icons.home_outlined,

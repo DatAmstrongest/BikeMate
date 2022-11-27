@@ -13,6 +13,8 @@ class AppColors {
 
   static const loginTextColor = Color.fromRGBO(2, 69, 232, 100);
   static const standardTextColor = Colors.black;
+  static const viewCommentsTextColor = Color.fromRGBO(0, 0, 0, 53);
+
   static const navbarTextColor = Colors.black;
   static const navbarSelectedTextColor = Colors.white;
 

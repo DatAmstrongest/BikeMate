@@ -11,7 +11,7 @@ import 'package:bikemate/pages/welcome.dart';
 void main() {
   runApp(
     MaterialApp(
-      initialRoute: '/',
+      initialRoute: Welcome.route,
       routes: {
         Welcome.route: (context) => const Welcome(),
         Login.route: (context) => const Login(),

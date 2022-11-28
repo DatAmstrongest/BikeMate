@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Images {
   static const path = "assets/images/";
 
-  static Widget svgIcon = SvgPicture.asset(
+  static Widget brandLogo = SvgPicture.asset(
     path + "Logo.svg",
     color: AppColors.logoColor,
     semanticsLabel: 'A red up arrow',

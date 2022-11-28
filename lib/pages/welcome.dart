@@ -1,5 +1,6 @@
 import 'package:bikemate/pages/login.dart';
 import 'package:bikemate/pages/signup.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -31,7 +32,7 @@ class Welcome extends StatelessWidget {
             Text("Welcome to BikeMate!", style: TextStyles.frontTitleStyle),
             Padding(
               padding: const EdgeInsets.only(top: 100),
-              child: Images.brandLogo,
+              child: Images.biggerLogo,
             ),
             const SizedBox(height: 100),
             SizedBox(
@@ -63,7 +64,7 @@ class Welcome extends StatelessWidget {
                       onPressed: () =>
                           {Navigator.pushNamed(context, SignUp.route)},
                     ),
-                  )
+                  ),
                 ],
               ),
             )

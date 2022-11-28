@@ -5,8 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Images {
   static const path = "assets/images/";
 
-  static Widget brandLogo = SvgPicture.asset(
-    path + "Logo.svg",
+  static Widget biggerLogo = SvgPicture.asset(
+    path + "biggerLogo.svg",
+    color: AppColors.logoColor,
+    semanticsLabel: 'A red up arrow',
+  );
+  static Widget smallerLogo = SvgPicture.asset(
+    path + "smallerLogo.svg",
     color: AppColors.logoColor,
     semanticsLabel: 'A red up arrow',
   );

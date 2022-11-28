@@ -37,11 +37,27 @@ class TextStyles {
     ),
   );
 
+  static final frontLabelStyle = GoogleFonts.nunito(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    textStyle: const TextStyle(
+      color: AppColors.loginTextColor,
+    ),
+  );
+
   static final frontLinkBoldStyle = GoogleFonts.nunito(
     fontSize: 16,
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(
       color: AppColors.loginTextColor,
+    ),
+  );
+
+  static final frontHintStyle = GoogleFonts.nunito(
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    textStyle: const TextStyle(
+      color: AppColors.hintTextColor,
     ),
   );
 

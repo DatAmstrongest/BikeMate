@@ -6,14 +6,18 @@ class AppColors {
   static const navbarIconColor = Colors.black;
   static const navbarSelectedIconColor = Colors.white;
 
+  static const inputBorderColor = Color.fromRGBO(170, 170, 170, 1);
+
   static const backgroundColor1 = Color.fromRGBO(209, 240, 222, 1);
   static const backgroundColor2 = Color.fromRGBO(138, 237, 179, 1);
   static const navbarBackgroundColor = Color.fromRGBO(2, 135, 242, 0.6);
   static const popupBackgroundColor = Color.fromRGBO(148, 200, 242, 1);
+  static const inputBackgroundColor = Color.fromRGBO(255, 255, 255, 1);
 
   static const loginTextColor = Color.fromRGBO(2, 69, 232, 1);
   static const standardTextColor = Colors.black;
   static const viewCommentsTextColor = Color.fromRGBO(0, 0, 0, 0.53);
+  static const hintTextColor = Color.fromRGBO(178, 178, 178, 1);
 
   static const navbarTextColor = Colors.black;
   static const navbarSelectedTextColor = Colors.white;

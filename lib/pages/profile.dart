@@ -20,7 +20,9 @@ class Profile extends StatelessWidget {
     ];
     return Scaffold(
       backgroundColor: AppColors.backgroundColor1,
-      bottomNavigationBar: Navbar(),
+      bottomNavigationBar: Navbar(
+        selectedIndex: 4,
+      ),
       body: Center(
         child: Column(
           children: [
@@ -62,16 +64,10 @@ class Profile extends StatelessWidget {
                   Icons.person_outline,
                   size: 30,
                 ),
-                SizedBox(width: 15),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Name", style: TextStyles.profileTextStyle),
-                    Text(
-                      "Murat Germen",
-                      style: TextStyles.profileBoldTextStyle,
-                    )
-                  ],
+                SizedBox(width: 5),
+                Text(
+                  "Murat Germen",
+                  style: TextStyles.profileBoldTextStyle,
                 ),
                 SizedBox(
                   width: 200,
@@ -79,71 +75,95 @@ class Profile extends StatelessWidget {
                 Icon(Icons.edit_outlined),
               ],
             ),
+            SizedBox(
+              height: 15,
+            ),
             Divider(
               indent: 2,
               endIndent: 2,
               color: AppColors.dividerColor,
             ),
-            SizedBox(height: 20),
             IntrinsicHeight(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    children: [
-                      Text(
-                        "120",
-                        style: TextStyles.profileNumberStyle,
-                      ),
-                      Text(
-                        "Followers",
-                        style: TextStyles.profileTextStyle,
-                      ),
-                    ],
+                  Container(
+                    width: 80,
+                    child: Column(
+                      children: [
+                        Text(
+                          "120",
+                          style: TextStyles.profileNumberStyle,
+                        ),
+                        Text(
+                          "Followers",
+                          style: TextStyles.profileTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  VerticalDivider(color: AppColors.dividerColor),
-                  Column(
-                    children: [
-                      Text(
-                        "112",
-                        style: TextStyles.profileNumberStyle,
-                      ),
-                      Text(
-                        "Comments",
-                        style: TextStyles.profileTextStyle,
-                      ),
-                    ],
+                  VerticalDivider(
+                    color: AppColors.dividerColor,
+                    endIndent: 30,
                   ),
-                  VerticalDivider(color: AppColors.dividerColor),
-                  Column(
-                    children: [
-                      Text(
-                        "95",
-                        style: TextStyles.profileNumberStyle,
-                      ),
-                      Text(
-                        "Likes",
-                        style: TextStyles.profileTextStyle,
-                      ),
-                    ],
+                  Container(
+                    width: 80,
+                    child: Column(
+                      children: [
+                        Text(
+                          "112",
+                          style: TextStyles.profileNumberStyle,
+                        ),
+                        Text(
+                          "Comments",
+                          style: TextStyles.profileTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  VerticalDivider(color: AppColors.dividerColor),
-                  Column(
-                    children: [
-                      Text(
-                        "35",
-                        style: TextStyles.profileNumberStyle,
-                      ),
-                      Text(
-                        "Posts",
-                        style: TextStyles.profileTextStyle,
-                      ),
-                    ],
+                  VerticalDivider(
+                    color: AppColors.dividerColor,
+                    endIndent: 30,
+                  ),
+                  Container(
+                    width: 80,
+                    child: Column(
+                      children: [
+                        Text(
+                          "95",
+                          style: TextStyles.profileNumberStyle,
+                        ),
+                        Text(
+                          "Likes",
+                          style: TextStyles.profileTextStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                  VerticalDivider(
+                    color: AppColors.dividerColor,
+                    endIndent: 30,
+                  ),
+                  Container(
+                    width: 80,
+                    child: Column(
+                      children: [
+                        Text(
+                          "35",
+                          style: TextStyles.profileNumberStyle,
+                        ),
+                        Text(
+                          "Posts",
+                          style: TextStyles.profileTextStyle,
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Divider(
               indent: 2,
               endIndent: 2,

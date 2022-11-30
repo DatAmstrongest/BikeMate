@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
         .toList();
     return Scaffold(
       backgroundColor: AppColors.backgroundColor1,
-      bottomNavigationBar: Navbar(),
+      bottomNavigationBar: Navbar(selectedIndex: 2),
       body: Column(
         children: [
           const SizedBox(height: 50),

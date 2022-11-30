@@ -22,6 +22,10 @@ class Images {
   );
 
   static Widget profileImage2 = Image.asset(path + "profilePhoto2.jpg");
+
+  static Widget smallerProfileImage2 =
+      Image.asset(path + "smallerProfilePhoto2.jpg");
+
   static Widget postImage = Image.asset(
     path + "postPhoto.jpg",
     fit: BoxFit.cover,

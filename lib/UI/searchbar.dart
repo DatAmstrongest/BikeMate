@@ -4,28 +4,18 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
-class Input extends StatefulWidget {
-  final label;
-  final hintText;
-  final isPassword;
-  var _passwordVisible = false;
-
-  Input({this.label, this.hintText, this.isPassword});
-
+class Searchbar extends StatefulWidget {
   @override
-  State<Input> createState() => _InputState();
+  State<Searchbar> createState() => _SearchbarState();
 }
 
-class _InputState extends State<Input> {
+class _SearchbarState extends State<Searchbar> {
   @override
   Widget build(BuildContext context) {
+    final fieldText = TextEditingController();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.label,
-          style: TextStyles.frontLabelStyle,
-        ),
         SizedBox(
           height: 45,
           child: GestureDetector(
@@ -36,21 +26,19 @@ class _InputState extends State<Input> {
               }
             },
             child: TextFormField(
-              obscureText: widget._passwordVisible,
+              textAlign: TextAlign.left,
+              controller: fieldText,
               decoration: InputDecoration(
-                  suffixIcon: widget.isPassword
-                      ? IconButton(
-                          icon: widget._passwordVisible
-                              ? const Icon(Icons.visibility_off)
-                              : const Icon(Icons.visibility),
-                          onPressed: () => {
-                            setState(() => {
-                                  widget._passwordVisible =
-                                      !widget._passwordVisible
-                                })
-                          },
-                        )
-                      : null,
+                  contentPadding: EdgeInsets.only(
+                    top: 10,
+                  ),
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: (() {
+                      fieldText.clear();
+                    }),
+                  ),
                   enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 1.5,
@@ -59,8 +47,8 @@ class _InputState extends State<Input> {
                   ),
                   filled: true,
                   fillColor: AppColors.inputBackgroundColor,
-                  hintText: widget.hintText,
-                  hintStyle: TextStyles.frontHintStyle),
+                  hintText: "Search",
+                  hintStyle: TextStyles.searchlightStyle),
             ),
           ),
         ),

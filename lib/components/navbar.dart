@@ -10,19 +10,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatefulWidget {
-  const Navbar({super.key});
+  late var selectedIndex;
+
+  Navbar({this.selectedIndex});
 
   @override
   State<Navbar> createState() => _NavbarState();
 }
 
 class _NavbarState extends State<Navbar> {
-  int _selectedIndex = 2;
-
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
     Navigator.pushNamed(context, routes[index]);
   }
 
@@ -62,7 +59,7 @@ class _NavbarState extends State<Navbar> {
           label: 'Profile',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: widget.selectedIndex,
       selectedItemColor: AppColors.navbarSelectedIconColor,
       onTap: _onItemTapped,
     );

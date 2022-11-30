@@ -14,6 +14,7 @@ class AppColors {
   static const navbarBackgroundColor = Color.fromRGBO(2, 135, 242, 0.6);
   static const popupBackgroundColor = Color.fromRGBO(148, 200, 242, 1);
   static const inputBackgroundColor = Color.fromRGBO(255, 255, 255, 1);
+  static const addImageBackgroundColor = Color.fromRGBO(38, 189, 101, 1);
 
   static const loginTextColor = Color.fromRGBO(2, 69, 232, 1);
   static const standardTextColor = Colors.black;

@@ -17,10 +17,17 @@ class Images {
   );
 
   //****** Images ******//
-  static Widget profileImage1 = Image.asset(path + "profilePhoto1.jpg");
+  static Widget profileImage1 = Image.asset(
+    path + "profilePhoto1.jpg",
+  );
+
   static Widget profileImage2 = Image.asset(path + "profilePhoto2.jpg");
   static Widget postImage = Image.asset(
     path + "postPhoto.jpg",
+    fit: BoxFit.cover,
+  );
+  static Widget smallPostImage = Image.asset(
+    path + "smallPostPhoto.png",
     fit: BoxFit.cover,
   );
 }

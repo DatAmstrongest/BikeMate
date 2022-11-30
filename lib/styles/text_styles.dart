@@ -111,7 +111,7 @@ class TextStyles {
     ),
   );
 
-  static final profileBoldTextCStyle = GoogleFonts.nunito(
+  static final profileBoldTextStyle = GoogleFonts.nunito(
     fontSize: 16,
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(

@@ -7,7 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';
-import 'package:bikemate/images.dart';
+import 'package:bikemate/UI/images.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);

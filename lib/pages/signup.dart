@@ -1,5 +1,5 @@
 import 'package:bikemate/UI/input.dart';
-import 'package:bikemate/images.dart';
+import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/pages/home.dart';
 import 'package:bikemate/pages/login.dart';
 import 'package:bikemate/pages/welcome.dart';
@@ -17,103 +17,115 @@ class SignUp extends StatelessWidget {
   static const route = "/signUp";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [AppColors.backgroundColor2, AppColors.backgroundColor1],
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [AppColors.backgroundColor2, AppColors.backgroundColor1],
+            ),
           ),
-        ),
-        padding: EdgeInsets.only(top: 80),
-        child: Column(
-          children: [
-            Text(
-              "Sign Up",
-              style: TextStyles.frontTitleStyle,
-            ),
-            SizedBox(height: 20),
-            Images.smallerLogo,
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              "BikeMate",
-              style: TextStyles.frontBrandStyle,
-            ),
-            const SizedBox(height: 30),
-            SizedBox(
-              width: 285,
-              child: Input(
-                label: "Email",
-                hintText: "Please enter your email",
-                isPassword: false,
-              ),
-            ),
-            const SizedBox(height: 25),
-            SizedBox(
-              width: 285,
-              child: Input(
-                label: "Username",
-                hintText: "Please enter your username",
-                isPassword: false,
-              ),
-            ),
-            const SizedBox(height: 25),
-            SizedBox(
-              width: 285,
-              child: Input(
-                label: "Password",
-                hintText: "Please enter your password",
-                isPassword: true,
-              ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            SizedBox(
-              width: 275,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  SizedBox(
-                    height: 50,
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(width: 1),
-                        backgroundColor: AppColors.signUpButtonColor,
+          padding: EdgeInsets.only(top: 80),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  "Sign Up",
+                  style: TextStyles.frontTitleStyle,
+                ),
+                SizedBox(height: 20),
+                Images.smallerLogo,
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "BikeMate",
+                  style: TextStyles.frontBrandStyle,
+                ),
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: 285,
+                  child: Input(
+                    label: "Email",
+                    hintText: "Please enter your email",
+                    isPassword: false,
+                  ),
+                ),
+                const SizedBox(height: 25),
+                SizedBox(
+                  width: 285,
+                  child: Input(
+                    label: "Username",
+                    hintText: "Please enter your username",
+                    isPassword: false,
+                  ),
+                ),
+                const SizedBox(height: 25),
+                SizedBox(
+                  width: 285,
+                  child: Input(
+                    label: "Password",
+                    hintText: "Please enter your password",
+                    isPassword: true,
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                SizedBox(
+                  width: 275,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      SizedBox(
+                        height: 50,
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            side: const BorderSide(width: 1),
+                            backgroundColor: AppColors.signUpButtonColor,
+                          ),
+                          child:
+                              Text("Sign Up", style: TextStyles.frontTextStyle),
+                          onPressed: () => {
+                            Navigator.pushNamed(context, Home.route),
+                          },
+                        ),
                       ),
-                      child: Text("Sign Up", style: TextStyles.frontTextStyle),
-                      onPressed: () => {
-                        Navigator.pushNamed(context, Home.route),
-                      },
-                    ),
+                      SizedBox(height: 15),
+                      Center(
+                        child: RichText(
+                          text: TextSpan(
+                              text: 'Already have an account?',
+                              style: TextStyles.frontLinkStyle,
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: '  Login',
+                                    style: TextStyles.frontLinkBoldStyle,
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        Navigator.pushNamed(
+                                            context, Login.route);
+                                        // navigate to desired screen
+                                      })
+                              ]),
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 15),
-                  Center(
-                    child: RichText(
-                      text: TextSpan(
-                          text: 'Already have an account?',
-                          style: TextStyles.frontLinkStyle,
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: '  Login',
-                                style: TextStyles.frontLinkBoldStyle,
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.pushNamed(context, Login.route);
-                                    // navigate to desired screen
-                                  })
-                          ]),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );

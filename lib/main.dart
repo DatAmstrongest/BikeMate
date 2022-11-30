@@ -1,3 +1,5 @@
+import 'package:bikemate/pages/notifications.dart';
+import 'package:bikemate/pages/search.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bikemate/pages/home.dart';
@@ -20,6 +22,8 @@ void main() {
         Profile.route: (context) => const Profile(),
         SignUp.route: (context) => const SignUp(),
         Home.route: (context) => const Home(),
+        Notifications.route: (context) => const Notifications(),
+        Search.route: (context) => const Search(),
       },
     ),
   );

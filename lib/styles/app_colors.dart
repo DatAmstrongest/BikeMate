@@ -7,6 +7,7 @@ class AppColors {
   static const navbarSelectedIconColor = Colors.white;
 
   static const inputBorderColor = Color.fromRGBO(170, 170, 170, 1);
+  static const dividerColor = Color.fromRGBO(0, 0, 0, 0.5);
 
   static const backgroundColor1 = Color.fromRGBO(209, 240, 222, 1);
   static const backgroundColor2 = Color.fromRGBO(138, 237, 179, 1);

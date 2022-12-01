@@ -168,6 +168,13 @@ class TextStyles {
     ),
   );
 
+  static final searchBioStyle = GoogleFonts.nunito(
+    fontSize: 12,
+    textStyle: const TextStyle(
+      color: AppColors.searchBioTextColor,
+    ),
+  );
+
   static final searchSubtitleStyle = GoogleFonts.nunito(
     fontSize: 20,
     fontWeight: FontWeight.bold,
@@ -180,7 +187,7 @@ class TextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w200,
     textStyle: const TextStyle(
-      color: AppColors.standardTextColor,
+      color: AppColors.searchLabelTextColor,
     ),
   );
 

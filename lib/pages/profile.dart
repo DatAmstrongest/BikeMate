@@ -49,7 +49,7 @@ class Profile extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.camera_alt_outlined,
-                        size: 20,
+                        size: 25,
                         color: Colors.black,
                       ),
                     ),

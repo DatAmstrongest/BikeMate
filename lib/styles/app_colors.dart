@@ -15,6 +15,7 @@ class AppColors {
   static const navbarBackgroundColor = Color.fromRGBO(10, 77, 131, 1);
   static const popupBackgroundColor = Color.fromRGBO(148, 200, 242, 1);
   static const inputBackgroundColor = Color.fromRGBO(255, 255, 255, 1);
+  static const searchBackgroundColor = Color.fromRGBO(52, 191, 209, 1);
   static const addImageBackgroundColor = Color.fromRGBO(38, 189, 101, 1);
 
   static const loginTextColor = Color.fromRGBO(209, 240, 222, 1);
@@ -25,6 +26,8 @@ class AppColors {
   static const titleColor2 = Color.fromRGBO(2, 232, 147, 1);
   static const navbarTextColor = Color.fromRGBO(220, 241, 243, 1);
   static const navbarSelectedTextColor = Color.fromRGBO(2, 232, 147, 1);
+  static const searchLabelTextColor = Color.fromRGBO(238, 254, 255, 1);
+  static const searchBioTextColor = Colors.black;
 
   static const loginButtonColor = Color.fromRGBO(2, 232, 147, 1);
   static const signUpButtonColor = Color.fromRGBO(52, 191, 209, 1);

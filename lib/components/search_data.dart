@@ -45,7 +45,7 @@ class SearchData extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(username, style: TextStyles.searchUsernameStyle),
-                  Text(bio, style: TextStyles.searchlightStyle)
+                  Text(bio, style: TextStyles.searchBioStyle)
                 ],
               ),
               SizedBox(

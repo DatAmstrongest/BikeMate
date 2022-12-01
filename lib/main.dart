@@ -13,6 +13,7 @@ import 'package:bikemate/pages/welcome.dart';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: Welcome.route,
       routes: {
         Welcome.route: (context) => const Welcome(),

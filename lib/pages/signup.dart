@@ -82,7 +82,7 @@ class SignUp extends StatelessWidget {
                         child: OutlinedButton(
                           style: OutlinedButton.styleFrom(
                             side: const BorderSide(width: 1),
-                            backgroundColor: AppColors.signUpButtonColor,
+                            backgroundColor: AppColors.loginButtonColor,
                           ),
                           child: Text("Sign Up",
                               style: TextStyles.frontButtonStyle),

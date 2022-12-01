@@ -32,9 +32,15 @@ class _SearchbarState extends State<Searchbar> {
                   contentPadding: EdgeInsets.only(
                     top: 10,
                   ),
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black,
+                  ),
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.close),
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.black,
+                    ),
                     onPressed: (() {
                       fieldText.clear();
                     }),
@@ -46,7 +52,7 @@ class _SearchbarState extends State<Searchbar> {
                     ),
                   ),
                   filled: true,
-                  fillColor: AppColors.inputBackgroundColor,
+                  fillColor: AppColors.searchBackgroundColor,
                   hintText: "Search",
                   hintStyle: TextStyles.searchlightStyle),
             ),

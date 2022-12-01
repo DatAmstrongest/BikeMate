@@ -1,6 +1,7 @@
 import 'package:bikemate/UI/input.dart';
 import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/pages/home.dart';
+import 'package:bikemate/pages/signup.dart';
 import 'package:bikemate/styles/app_colors.dart';
 
 import 'package:flutter/gestures.dart';
@@ -91,7 +92,7 @@ class Login extends StatelessWidget {
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         Navigator.pushNamed(
-                                            context, Login.route);
+                                            context, SignUp.route);
                                         // navigate to desired screen
                                       })
                               ]),

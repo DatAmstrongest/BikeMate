@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const logoColor = Color.fromRGBO(2, 69, 232, 1);
+  static const logoColor = Color.fromRGBO(10, 77, 131, 1);
 
   static const navbarIconColor = Colors.black;
   static const navbarSelectedIconColor = Colors.white;
@@ -9,7 +9,7 @@ class AppColors {
   static const inputBorderColor = Color.fromRGBO(170, 170, 170, 1);
   static const dividerColor = Color.fromRGBO(0, 0, 0, 1);
 
-  static const backgroundColor1 = Color.fromRGBO(209, 240, 222, 1);
+  static const backgroundColor1 = Color.fromRGBO(220, 241, 243, 1);
   static const backgroundColor2 = Color.fromRGBO(138, 237, 179, 1);
   static const navbarBackgroundColor = Color.fromRGBO(2, 135, 242, 0.6);
   static const popupBackgroundColor = Color.fromRGBO(148, 200, 242, 1);
@@ -20,6 +20,7 @@ class AppColors {
   static const standardTextColor = Colors.black;
   static const viewCommentsTextColor = Color.fromRGBO(0, 0, 0, 0.53);
   static const hintTextColor = Color.fromRGBO(178, 178, 178, 1);
+  static const titleColor = Color.fromRGBO(10, 77, 131, 1);
 
   static const navbarTextColor = Colors.black;
   static const navbarSelectedTextColor = Colors.white;
@@ -29,6 +30,6 @@ class AppColors {
   static const profilePictureButtonColor = Color.fromRGBO(38, 189, 101, 1);
   static const followButtonColor = Color.fromRGBO(148, 200, 242, 1);
   static const sendTextButtonColor = Color.fromRGBO(148, 200, 242, 1);
-  static const confirmButtonColor = Color.fromRGBO(148, 200, 242, 1);
-  static const deleteButtonColor = Color.fromRGBO(38, 189, 101, 1);
+  static const confirmButtonColor = Color.fromRGBO(2, 232, 147, 1);
+  static const deleteButtonColor = Color.fromRGBO(52, 191, 209, 1);
 }

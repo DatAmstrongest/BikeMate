@@ -16,7 +16,18 @@ class Images {
     semanticsLabel: 'A red up arrow',
   );
 
+  static Widget smallestLogo = SvgPicture.asset(
+    path + "smallestLogo.svg",
+    color: AppColors.logoColor,
+    semanticsLabel: 'A red up arrow',
+  );
+
   //****** Images ******//
+
+  static Widget avatarImage = Image.asset(
+    path + "avatar.jpg",
+  );
+
   static Widget profileImage1 = Image.asset(
     path + "profilePhoto1.jpg",
   );
@@ -28,7 +39,7 @@ class Images {
 
   static Widget postImage = Image.asset(
     path + "postPhoto.jpg",
-    fit: BoxFit.cover,
+    fit: BoxFit.contain,
   );
   static Widget smallPostImage = Image.asset(
     path + "smallPostPhoto.png",

@@ -193,9 +193,10 @@ class TextStyles {
   //****** Notifications ******//
 
   static final notificationBrandStyle = GoogleFonts.nunito(
-    fontSize: 12,
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
     textStyle: const TextStyle(
-      color: AppColors.standardTextColor,
+      color: AppColors.titleColor,
     ),
   );
 
@@ -209,6 +210,13 @@ class TextStyles {
 
   static final notificationTextStyle = GoogleFonts.nunito(
     fontSize: 12,
+    textStyle: const TextStyle(
+      color: AppColors.standardTextColor,
+    ),
+  );
+
+  static final notificationButtonTextStyle = GoogleFonts.nunito(
+    fontSize: 16,
     textStyle: const TextStyle(
       color: AppColors.standardTextColor,
     ),

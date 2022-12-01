@@ -14,26 +14,29 @@ class PostText extends StatelessWidget {
           child: RichText(
             maxLines: 2,
             text: TextSpan(
-                text: 'kocmetehan, Nisa, Hasan ',
-                style: TextStyles.homepageBoldTextStyle,
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'and ',
-                    style: TextStyles.homepageTextStyle,
-                  ),
-                  TextSpan(
-                    text: 'others ',
-                    style: TextStyles.homepageBoldTextStyle,
-                  ),
-                  TextSpan(
-                    text: 'shared images from ',
-                    style: TextStyles.homepageTextStyle,
-                  ),
-                  TextSpan(
-                    text: 'Caddebost event',
-                    style: TextStyles.homepageBoldTextStyle,
-                  )
-                ]),
+              children: <TextSpan>[
+                TextSpan(
+                  text: 'kocmetehan, Nisa, Hasan ',
+                  style: TextStyles.homepageBoldTextStyle,
+                ),
+                TextSpan(
+                  text: 'and ',
+                  style: TextStyles.homepageTextStyle,
+                ),
+                TextSpan(
+                  text: 'others ',
+                  style: TextStyles.homepageBoldTextStyle,
+                ),
+                TextSpan(
+                  text: 'shared images from ',
+                  style: TextStyles.homepageTextStyle,
+                ),
+                TextSpan(
+                  text: 'Caddebost event',
+                  style: TextStyles.homepageBoldTextStyle,
+                )
+              ],
+            ),
           ),
         ),
       ],

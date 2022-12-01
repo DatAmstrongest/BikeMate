@@ -30,7 +30,7 @@ class Notifications extends StatelessWidget {
               SizedBox(
                 width: 40,
                 height: 40,
-                child: Images.smallerLogo,
+                child: Images.smallestLogo,
               ),
               Text(
                 "BikeMate",

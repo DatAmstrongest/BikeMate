@@ -16,22 +16,19 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor2,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [AppColors.backgroundColor2, AppColors.backgroundColor1],
-          ),
-        ),
-        padding: EdgeInsets.only(top: 112),
+        padding: EdgeInsets.only(top: 80),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Welcome to BikeMate!", style: TextStyles.frontTitleStyle),
+            Text("Welcome", style: TextStyles.frontTitleStyle),
+            Text("to", style: TextStyles.frontTitleStyle),
+            Text("BikeMate!", style: TextStyles.frontTitleStyle),
             Padding(
-              padding: const EdgeInsets.only(top: 100),
+              padding: const EdgeInsets.only(top: 30),
               child: Images.biggerLogo,
             ),
             const SizedBox(height: 100),
@@ -47,7 +44,7 @@ class Welcome extends StatelessWidget {
                         side: const BorderSide(width: 1),
                         backgroundColor: AppColors.loginButtonColor,
                       ),
-                      child: Text("Login", style: TextStyles.frontTextStyle),
+                      child: Text("Login", style: TextStyles.frontButtonStyle),
                       onPressed: () =>
                           {Navigator.pushNamed(context, Login.route)},
                     ),
@@ -56,11 +53,17 @@ class Welcome extends StatelessWidget {
                   SizedBox(
                     height: 50,
                     child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(width: 1),
-                        backgroundColor: AppColors.signUpButtonColor,
-                      ),
-                      child: Text("Sign Up", style: TextStyles.frontTextStyle),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              AppColors.signUpButtonColor)),
+                      child:
+                          Text("Sign Up", style: TextStyles.frontButtonStyle),
                       onPressed: () =>
                           {Navigator.pushNamed(context, SignUp.route)},
                     ),

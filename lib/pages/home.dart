@@ -1,3 +1,4 @@
+import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/components/navbar.dart';
 import 'package:bikemate/components/post/post.dart';
 import 'package:bikemate/styles/app_colors.dart';
@@ -32,7 +33,13 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 50),
-          Text("BikeMate", style: TextStyles.homepageTitleStyle),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Images.smallestLogo,
+              Text("BikeMate", style: TextStyles.homepageTitleStyle),
+            ],
+          ),
           const SizedBox(height: 10),
           const Divider(
             color: AppColors.dividerColor,

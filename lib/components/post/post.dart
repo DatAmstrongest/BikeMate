@@ -1,5 +1,6 @@
 import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/components/post/carousel.dart';
+import 'package:bikemate/components/post/post_text.dart';
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -24,48 +25,14 @@ class _PostState extends State<Post> {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FacePile(
-              radius: 20,
-              space: 25,
-              images: [
-                NetworkImage("https://i.pravatar.cc/300?img=2"),
-                NetworkImage("https://i.pravatar.cc/300?img=3"),
-                NetworkImage("https://i.pravatar.cc/300?img=4"),
-              ],
-            ),
+            ClipOval(child: Images.avatarImage),
             Container(
-              padding: EdgeInsets.only(left: 15),
-              width: 250,
-              child: Row(
-                children: [
-                  Flexible(
-                    child: RichText(
-                      maxLines: 2,
-                      text: TextSpan(
-                          text: 'kocmetehan, Nisa, Hasan ',
-                          style: TextStyles.homepageBoldTextStyle,
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'and ',
-                              style: TextStyles.homepageTextStyle,
-                            ),
-                            TextSpan(
-                              text: 'others ',
-                              style: TextStyles.homepageBoldTextStyle,
-                            ),
-                            TextSpan(
-                              text: 'shared images from ',
-                              style: TextStyles.homepageTextStyle,
-                            ),
-                            TextSpan(
-                              text: 'Caddebost event',
-                              style: TextStyles.homepageBoldTextStyle,
-                            )
-                          ]),
-                    ),
-                  ),
-                ],
+              padding: EdgeInsets.only(
+                left: 15,
+                top: 5,
               ),
+              width: 330,
+              child: PostText(),
             ),
           ],
         ),

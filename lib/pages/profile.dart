@@ -170,9 +170,8 @@ class Profile extends StatelessWidget {
               color: AppColors.dividerColor,
             ),
             SizedBox(height: 10),
-            Text(
-              "Posts",
-              style: TextStyles.profileSubtitleStyle,
+            Icon(
+              Icons.grid_on,
             ),
             SizedBox(
               height: 20,

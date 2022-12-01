@@ -25,24 +25,14 @@ class SignUp extends StatelessWidget {
         }
       },
       child: Scaffold(
+        backgroundColor: AppColors.backgroundColor2,
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [AppColors.backgroundColor2, AppColors.backgroundColor1],
-            ),
-          ),
           padding: EdgeInsets.only(top: 80),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(
-                  "Sign Up",
-                  style: TextStyles.frontTitleStyle,
-                ),
                 SizedBox(height: 20),
                 Images.smallerLogo,
                 const SizedBox(
@@ -94,8 +84,8 @@ class SignUp extends StatelessWidget {
                             side: const BorderSide(width: 1),
                             backgroundColor: AppColors.signUpButtonColor,
                           ),
-                          child:
-                              Text("Sign Up", style: TextStyles.frontTextStyle),
+                          child: Text("Sign Up",
+                              style: TextStyles.frontButtonStyle),
                           onPressed: () => {
                             Navigator.pushNamed(context, Home.route),
                           },

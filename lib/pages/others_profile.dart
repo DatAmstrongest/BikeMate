@@ -41,21 +41,6 @@ class OthersProfile extends StatelessWidget {
                   backgroundImage:
                       AssetImage("assets/images/profilePhoto2.jpg"),
                 ),
-                Positioned(
-                  right: 10,
-                  top: 120,
-                  child: CircleAvatar(
-                    backgroundColor: AppColors.addImageBackgroundColor,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.camera_alt_outlined,
-                        size: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                )
               ],
             ),
             SizedBox(
@@ -78,6 +63,18 @@ class OthersProfile extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(Icons.person_add_outlined),
                   label: Text("Follow"),
+                  style: ButtonStyle(
+                    side: MaterialStateProperty.all(
+                      BorderSide(
+                          color: Colors.black,
+                          width: 1.0,
+                          style: BorderStyle.solid),
+                    ),
+                    backgroundColor: MaterialStatePropertyAll<Color>(
+                        AppColors.sendTextButtonColor),
+                    foregroundColor: MaterialStatePropertyAll<Color>(
+                        AppColors.standardTextColor),
+                  ),
                 ),
                 SizedBox(
                   width: 15,
@@ -86,6 +83,18 @@ class OthersProfile extends StatelessWidget {
                   onPressed: () {},
                   icon: FaIcon(FontAwesomeIcons.paperPlane),
                   label: Text("Text"),
+                  style: ButtonStyle(
+                    side: MaterialStateProperty.all(
+                      BorderSide(
+                          color: Colors.black,
+                          width: 1.0,
+                          style: BorderStyle.solid),
+                    ),
+                    backgroundColor: MaterialStatePropertyAll<Color>(
+                        AppColors.sendTextButtonColor),
+                    foregroundColor: MaterialStatePropertyAll<Color>(
+                        AppColors.standardTextColor),
+                  ),
                 ),
               ],
             ),

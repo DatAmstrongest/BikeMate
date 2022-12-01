@@ -21,27 +21,14 @@ class Login extends StatelessWidget {
         }
       },
       child: Scaffold(
+        backgroundColor: AppColors.backgroundColor2,
         body: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  AppColors.backgroundColor2,
-                  AppColors.backgroundColor1
-                ],
-              ),
-            ),
             padding: EdgeInsets.only(top: 80),
             child: Column(
               children: [
-                Text(
-                  "Login",
-                  style: TextStyles.frontTitleStyle,
-                ),
                 SizedBox(height: 20),
                 Images.smallerLogo,
                 const SizedBox(
@@ -85,7 +72,7 @@ class Login extends StatelessWidget {
                             backgroundColor: AppColors.loginButtonColor,
                           ),
                           child:
-                              Text("Login", style: TextStyles.frontTextStyle),
+                              Text("Login", style: TextStyles.frontButtonStyle),
                           onPressed: () => {
                             Navigator.pushNamed(context, Home.route),
                           },

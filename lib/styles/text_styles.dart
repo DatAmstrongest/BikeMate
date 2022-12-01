@@ -10,15 +10,15 @@ class TextStyles {
     fontSize: 35,
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(
-      color: AppColors.loginTextColor,
+      color: AppColors.loginButtonColor,
     ),
   );
 
   static final frontBrandStyle = GoogleFonts.nunito(
-    fontSize: 25,
+    fontSize: 40,
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(
-      color: AppColors.loginTextColor,
+      color: AppColors.titleColor2,
     ),
   );
 
@@ -61,6 +61,14 @@ class TextStyles {
     ),
   );
 
+  static final frontButtonStyle = GoogleFonts.nunito(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    textStyle: const TextStyle(
+      color: AppColors.hintTextColor,
+    ),
+  );
+
   //****** End ******//
 
   //****** Homepage ******//
@@ -68,7 +76,7 @@ class TextStyles {
   static final homepageTitleStyle = GoogleFonts.nunito(
     fontSize: 25,
     fontWeight: FontWeight.bold,
-    textStyle: const TextStyle(color: AppColors.standardTextColor),
+    textStyle: const TextStyle(color: AppColors.titleColor1),
   );
 
   static final homepageTextStyle = GoogleFonts.nunito(
@@ -196,7 +204,7 @@ class TextStyles {
     fontSize: 30,
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(
-      color: AppColors.titleColor,
+      color: AppColors.titleColor1,
     ),
   );
 

@@ -61,6 +61,7 @@ class _NavbarState extends State<Navbar> {
       ],
       currentIndex: widget.selectedIndex,
       selectedItemColor: AppColors.navbarSelectedIconColor,
+      unselectedItemColor: AppColors.navbarIconColor,
       onTap: _onItemTapped,
     );
   }

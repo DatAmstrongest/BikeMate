@@ -7,18 +7,18 @@ class Images {
 
   static Widget biggerLogo = SvgPicture.asset(
     path + "biggerLogo.svg",
-    color: AppColors.logoColor,
+    color: AppColors.logoColor2,
     semanticsLabel: 'A red up arrow',
   );
   static Widget smallerLogo = SvgPicture.asset(
     path + "smallerLogo.svg",
-    color: AppColors.logoColor,
+    color: AppColors.logoColor2,
     semanticsLabel: 'A red up arrow',
   );
 
   static Widget smallestLogo = SvgPicture.asset(
     path + "smallestLogo.svg",
-    color: AppColors.logoColor,
+    color: AppColors.logoColor1,
     semanticsLabel: 'A red up arrow',
   );
 

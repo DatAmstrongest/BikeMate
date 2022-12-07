@@ -18,7 +18,7 @@ void main() {
       routes: {
         Welcome.route: (context) => const Welcome(),
         Login.route: (context) => const Login(),
-        Map.route: (context) => const Map(),
+        Map.route: (context) => Map(),
         OthersProfile.route: (context) => const OthersProfile(),
         Profile.route: (context) => const Profile(),
         SignUp.route: (context) => const SignUp(),

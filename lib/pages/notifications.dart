@@ -1,5 +1,5 @@
 import 'package:bikemate/UI/images.dart';
-import 'package:bikemate/components/navbar.dart';
+import 'package:bikemate/components/navbars/navbar.dart';
 import 'package:bikemate/components/notification/notification_approved.dart';
 import 'package:bikemate/components/notification/notification_invite.dart';
 import 'package:bikemate/components/notification/notification_like.dart';

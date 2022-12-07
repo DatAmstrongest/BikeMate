@@ -1,6 +1,6 @@
 import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/UI/searchbar.dart';
-import 'package:bikemate/components/navbar.dart';
+import 'package:bikemate/components/navbars/navbar.dart';
 import 'package:bikemate/components/search_data.dart';
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';

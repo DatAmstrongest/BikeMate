@@ -1,4 +1,5 @@
 import 'package:bikemate/pages/home.dart';
+import 'package:bikemate/pages/map.dart';
 import 'package:bikemate/pages/notifications.dart';
 import 'package:bikemate/pages/profile.dart';
 import 'package:bikemate/pages/search.dart';
@@ -24,7 +25,7 @@ class _NavbarState extends State<Navbar> {
   }
 
   final routes = [
-    Welcome.route,
+    Map.route,
     Search.route,
     Home.route,
     Notifications.route,

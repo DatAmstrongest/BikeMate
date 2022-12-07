@@ -8,7 +8,7 @@ import 'dart:collection';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'locations.dart' as locations;
+import 'locations.dart';
 
 class Map extends StatefulWidget {
   static const route = "/map";
@@ -35,27 +35,36 @@ class MapState extends State<Map> {
         .then((value) {})
         .onError((error, stackTrace) async {
       await Geolocator.requestPermission();
-      print("ERROR" + error.toString());
     });
     return await Geolocator.getCurrentPosition();
   }
 
   final HashMap<String, Marker> _markers = HashMap<String, Marker>();
   Future<void> _onMapCreated(GoogleMapController controller) async {
-    final googleOffices = await locations.getGoogleOffices();
+    final isbikes = Isbike.Isbikes;
+    var myIcon;
+    await BitmapDescriptor.fromAssetImage(
+      ImageConfiguration(size: Size(48, 48)),
+      "assets/images/logo.png",
+    ).then(
+      (onValue) {
+        myIcon = onValue;
+      },
+    );
+
     setState(
       () {
         _markers.clear();
-        for (final office in googleOffices.offices) {
+        for (final isbike in isbikes) {
           final marker = Marker(
-            markerId: MarkerId(office.name),
-            position: LatLng(office.lat, office.lng),
+            icon: myIcon,
+            markerId: MarkerId(isbike.name),
+            position: LatLng(isbike.lat, isbike.lng),
             infoWindow: InfoWindow(
-              title: office.name,
-              snippet: office.address,
+              title: isbike.name,
             ),
           );
-          _markers[office.name] = marker;
+          _markers[isbike.name] = marker;
         }
       },
     );
@@ -181,20 +190,6 @@ class MapState extends State<Map> {
                 icon: Icon(Icons.gps_fixed),
                 onPressed: () async {
                   getUserCurrentLocation().then((value) async {
-                    print(value.latitude.toString() +
-                        " " +
-                        value.longitude.toString());
-
-                    // marker added for current users location
-                    final marker = Marker(
-                      markerId: MarkerId("2"),
-                      position: LatLng(value.latitude, value.longitude),
-                      infoWindow: InfoWindow(
-                        title: 'My Current Location',
-                      ),
-                    );
-                    _markers["2"] = marker;
-
                     // specified current users location
                     CameraPosition cameraPosition = new CameraPosition(
                       target: LatLng(value.latitude, value.longitude),

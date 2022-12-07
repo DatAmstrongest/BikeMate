@@ -1,121 +1,71 @@
-/*
- * Copyright 2019 Google LLC
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *     https://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+import 'package:flutter/material.dart';
 
-import 'dart:convert';
+class Isbike {
+  final name;
+  final lat;
+  final lng;
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:http/http.dart' as http;
-import 'package:json_annotation/json_annotation.dart';
-
-part 'locations.g.dart';
-
-@JsonSerializable()
-class LatLng {
-  LatLng({
-    required this.lat,
-    required this.lng,
+  const Isbike({
+    this.name,
+    this.lat,
+    this.lng,
   });
 
-  factory LatLng.fromJson(Map<String, dynamic> json) => _$LatLngFromJson(json);
-  Map<String, dynamic> toJson() => _$LatLngToJson(this);
-
-  final double lat;
-  final double lng;
-}
-
-@JsonSerializable()
-class Region {
-  Region({
-    required this.coords,
-    required this.id,
-    required this.name,
-    required this.zoom,
-  });
-
-  factory Region.fromJson(Map<String, dynamic> json) => _$RegionFromJson(json);
-  Map<String, dynamic> toJson() => _$RegionToJson(this);
-
-  final LatLng coords;
-  final String id;
-  final String name;
-  final double zoom;
-}
-
-@JsonSerializable()
-class Office {
-  Office({
-    required this.address,
-    required this.id,
-    required this.image,
-    required this.lat,
-    required this.lng,
-    required this.name,
-    required this.phone,
-    required this.region,
-  });
-
-  factory Office.fromJson(Map<String, dynamic> json) => _$OfficeFromJson(json);
-  Map<String, dynamic> toJson() => _$OfficeToJson(this);
-
-  final String address;
-  final String id;
-  final String image;
-  final double lat;
-  final double lng;
-  final String name;
-  final String phone;
-  final String region;
-}
-
-@JsonSerializable()
-class Locations {
-  Locations({
-    required this.offices,
-    required this.regions,
-  });
-
-  factory Locations.fromJson(Map<String, dynamic> json) =>
-      _$LocationsFromJson(json);
-  Map<String, dynamic> toJson() => _$LocationsToJson(this);
-
-  final List<Office> offices;
-  final List<Region> regions;
-}
-
-Future<Locations> getGoogleOffices() async {
-  const googleLocationsURL = 'https://about.google/static/data/locations.json';
-
-  // Retrieve the locations of Google offices
-  try {
-    final response = await http.get(Uri.parse(googleLocationsURL));
-    if (response.statusCode == 200) {
-      return Locations.fromJson(
-          json.decode(response.body) as Map<String, dynamic>);
-    }
-  } catch (e) {
-    if (kDebugMode) {
-      print(e);
-    }
-  }
-
-  // Fallback for when the above HTTP request fails.
-  return Locations.fromJson(
-    json.decode(
-      await rootBundle.loadString('assets/locations.json'),
-    ) as Map<String, dynamic>,
-  );
+  static const List<Isbike> Isbikes = [
+    Isbike(
+      lat: 40.952266,
+      lng: 29.090789,
+      name: "Bostancı İDO - 2",
+    ),
+    Isbike(
+      lat: 40.96330,
+      lng: 29.06631,
+      name: "Caddebostan Migros",
+    ),
+    Isbike(
+      lat: 40.95287,
+      lng: 29.09019,
+      name: "Bostancı İDO - 1",
+    ),
+    Isbike(
+      lat: 40.94661,
+      lng: 29.10169,
+      name: "Maltepe Kültür Merkezi-1",
+    ),
+    Isbike(
+      lat: 40.9249313794,
+      lng: 29.123945947,
+      name: "Süreyya Paşa Plajı",
+    ),
+    Isbike(
+      lat: 40.990497,
+      lng: 29.018865,
+      name: "Kadıköy Balon - 1",
+    ),
+    Isbike(
+      lat: 40.912090533,
+      lng: 29.1339457835,
+      name: "Piri Reis - 1",
+    ),
+    Isbike(
+      lat: 40.90171518,
+      lng: 29.1465356,
+      name: "Dragos Sosyal Tesisleri",
+    ),
+    Isbike(
+      lat: 40.8900638046,
+      lng: 29.1750217889,
+      name: "Kartal Sahil - 1",
+    ),
+    Isbike(
+      lat: 40.887286,
+      lng: 29.187681,
+      name: "Kartal İDO - 1",
+    ),
+    Isbike(
+      lat: 40.97069,
+      lng: 28.79055,
+      name: "Güneş Plajı",
+    ),
+  ];
 }

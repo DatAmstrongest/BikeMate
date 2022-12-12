@@ -22,6 +22,31 @@ class Images {
     semanticsLabel: 'A red up arrow',
   );
 
+  static Widget belturLogo = Container(
+      child: SvgPicture.asset(
+    path + "belturLogo.svg",
+    fit: BoxFit.fill,
+  ));
+
+  static Widget disabledBelturLogo = Container(
+      child: SvgPicture.asset(
+    color: Colors.black,
+    path + "belturLogo.svg",
+    fit: BoxFit.fill,
+  ));
+
+  static Widget isbikeLogo = Image.asset(
+    "assets/images/isbikeLogo.png",
+  );
+
+  static Widget disabledIsbikeLogo = ColorFiltered(
+    colorFilter: ColorFilter.mode(
+      Colors.grey,
+      BlendMode.saturation,
+    ),
+    child: isbikeLogo,
+  );
+
   //****** Images ******//
 
   static Widget avatarImage = Image.asset(

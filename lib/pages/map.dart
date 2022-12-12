@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'dart:ui' as ui;
+import 'package:custom_marker/marker_icon.dart';
+import 'dart:typed_data';
 import 'package:bikemate/UI/images.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:bikemate/components/navbars/navbar.dart';
@@ -17,18 +20,22 @@ class Map extends StatefulWidget {
 }
 
 class MapState extends State<Map> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   static final CameraPosition _kGoogle = const CameraPosition(
-    target: LatLng(20.42796133580664, 80.885749655962),
+    target: LatLng(41.02, 28.95),
     zoom: 14.4746,
   );
   Completer<GoogleMapController> _controller = Completer();
   final PanelController _pc = PanelController();
   var isPanelOpen = false;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  var showIsbikes = false;
+  var showBelturs = true;
+  var showStations = true;
 
   Future<Position> getUserCurrentLocation() async {
     await Geolocator.requestPermission()
@@ -39,36 +46,52 @@ class MapState extends State<Map> {
     return await Geolocator.getCurrentPosition();
   }
 
-  final HashMap<String, Marker> _markers = HashMap<String, Marker>();
+  Set<Marker> _markers = Set();
+
   Future<void> _onMapCreated(GoogleMapController controller) async {
-    final isbikes = Isbike.Isbikes;
-    var myIcon;
-    await BitmapDescriptor.fromAssetImage(
-      ImageConfiguration(size: Size(48, 48)),
-      "assets/images/logo.png",
+    _controller.complete(controller);
+  }
+
+  Future<void> _addIsbikes() async {
+    BitmapDescriptor myIcon = BitmapDescriptor.defaultMarker;
+    await MarkerIcon.pictureAsset(
+      width: 50,
+      height: 50,
+      assetPath: "assets/images/isbikeLogo.png",
     ).then(
       (onValue) {
         myIcon = onValue;
       },
     );
-
-    setState(
-      () {
-        _markers.clear();
-        for (final isbike in isbikes) {
+    setState(() {
+      for (final location in Location.locations) {
+        if ((showIsbikes && location.type == "isbike")) {
           final marker = Marker(
             icon: myIcon,
-            markerId: MarkerId(isbike.name),
-            position: LatLng(isbike.lat, isbike.lng),
+            markerId: MarkerId(location.name),
+            position: LatLng(location.lat, location.lng),
             infoWindow: InfoWindow(
-              title: isbike.name,
+              title: location.name,
             ),
           );
-          _markers[isbike.name] = marker;
+
+          _markers.add(marker);
         }
-      },
-    );
-    _controller.complete(controller);
+      }
+    });
+  }
+
+  Future<void> _removeIsbikes() async {
+    setState(() {
+      for (final location in Location.locations) {
+        if (location.type == "isbike") {
+          Marker marker = _markers.firstWhere(
+              (marker) => marker.markerId.value == location.name,
+              orElse: null);
+          _markers.remove(marker);
+        }
+      }
+    });
   }
 
   Widget _floatingCollapsed() {
@@ -95,33 +118,41 @@ class MapState extends State<Map> {
           ),
           IconButton(
             iconSize: 40,
-            onPressed: () {
-              _pc.open();
-              setState(() {
-                isPanelOpen = true;
-              });
+            onPressed: () async {
+              showIsbikes = !showIsbikes;
+              if (showIsbikes) {
+                _addIsbikes();
+              } else {
+                _removeIsbikes();
+              }
             },
-            icon: SvgPicture.asset("assets/images/smallestLogo.svg"),
+            icon: showIsbikes ? Images.isbikeLogo : Images.disabledIsbikeLogo,
           ),
+          IconButton(
+              iconSize: 40,
+              onPressed: () {
+                setState(() {
+                  showBelturs = !showBelturs;
+                });
+              },
+              icon:
+                  showBelturs ? Images.belturLogo : Images.disabledBelturLogo),
           IconButton(
             iconSize: 40,
             onPressed: () {
-              _pc.open();
               setState(() {
-                isPanelOpen = true;
+                showStations = !showStations;
               });
             },
-            icon: Icon(Icons.dining),
-          ),
-          IconButton(
-            iconSize: 40,
-            onPressed: () {
-              _pc.open();
-              setState(() {
-                isPanelOpen = true;
-              });
-            },
-            icon: Icon(FontAwesomeIcons.wrench),
+            icon: showStations
+                ? Icon(
+                    FontAwesomeIcons.wrench,
+                    color: Colors.orange,
+                  )
+                : Icon(
+                    FontAwesomeIcons.wrench,
+                    color: Colors.grey,
+                  ),
           ),
         ],
       ),
@@ -175,7 +206,7 @@ class MapState extends State<Map> {
                 myLocationButtonEnabled: false,
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: _kGoogle,
-                markers: _markers.values.toSet(),
+                markers: _markers,
               ),
             ),
           ),

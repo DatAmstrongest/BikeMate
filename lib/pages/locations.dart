@@ -116,5 +116,35 @@ class Location {
       lng: 29.064053,
       name: "Caddebostan Sahil",
     ),
+    Location(
+      type: "station",
+      lat: 40.995231,
+      lng: 29.034232,
+      name: "Acıbadem Atilla Bike",
+    ),
+    Location(
+      type: "station",
+      lat: 40.980390,
+      lng: 29.041582,
+      name: "Kaçkar Bike",
+    ),
+    Location(
+      type: "station",
+      lat: 40.974582,
+      lng: 29.053522,
+      name: "Gürsel Akay Bike",
+    ),
+    Location(
+      type: "station",
+      lat: 40.964380,
+      lng: 29.081920,
+      name: "Start Bike",
+    ),
+    Location(
+      type: "station",
+      lat: 41.024898,
+      lng: 28.974958,
+      name: "Isik Bike",
+    ),
   ];
 }

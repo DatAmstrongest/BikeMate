@@ -34,8 +34,8 @@ class MapState extends State<Map> {
   final PanelController _pc = PanelController();
   var isPanelOpen = false;
   var showIsbikes = false;
-  var showBelturs = true;
-  var showStations = true;
+  var showBelturs = false;
+  var showStations = false;
 
   Future<Position> getUserCurrentLocation() async {
     await Geolocator.requestPermission()
@@ -94,6 +94,85 @@ class MapState extends State<Map> {
     });
   }
 
+  Future<void> _addBelturs() async {
+    BitmapDescriptor myIcon = BitmapDescriptor.defaultMarker;
+    await MarkerIcon.pictureAsset(
+      width: 80,
+      height: 80,
+      assetPath: "assets/images/belturLogo.jpeg",
+    ).then(
+      (onValue) {
+        myIcon = onValue;
+      },
+    );
+    setState(() {
+      for (final location in Location.locations) {
+        if ((showBelturs && location.type == "beltur")) {
+          final marker = Marker(
+            icon: myIcon,
+            markerId: MarkerId(location.name),
+            position: LatLng(location.lat, location.lng),
+            infoWindow: InfoWindow(
+              title: location.name,
+            ),
+          );
+
+          _markers.add(marker);
+        }
+      }
+    });
+  }
+
+  Future<void> _removeBelturs() async {
+    setState(() {
+      for (final location in Location.locations) {
+        if (location.type == "beltur") {
+          Marker marker = _markers.firstWhere(
+              (marker) => marker.markerId.value == location.name,
+              orElse: null);
+          _markers.remove(marker);
+        }
+      }
+    });
+  }
+
+  Future<void> _addStations() async {
+    BitmapDescriptor myIcon = BitmapDescriptor.defaultMarker;
+    await MarkerIcon.markerFromIcon(FontAwesomeIcons.wrench, Colors.orange, 50)
+        .then((onValue) {
+      myIcon = onValue;
+    });
+    setState(() {
+      for (final location in Location.locations) {
+        if ((showStations && location.type == "station")) {
+          final marker = Marker(
+            icon: myIcon,
+            markerId: MarkerId(location.name),
+            position: LatLng(location.lat, location.lng),
+            infoWindow: InfoWindow(
+              title: location.name,
+            ),
+          );
+
+          _markers.add(marker);
+        }
+      }
+    });
+  }
+
+  Future<void> _removeStations() async {
+    setState(() {
+      for (final location in Location.locations) {
+        if (location.type == "station") {
+          Marker marker = _markers.firstWhere(
+              (marker) => marker.markerId.value == location.name,
+              orElse: null);
+          _markers.remove(marker);
+        }
+      }
+    });
+  }
+
   Widget _floatingCollapsed() {
     return Container(
       decoration: BoxDecoration(
@@ -133,6 +212,11 @@ class MapState extends State<Map> {
               onPressed: () {
                 setState(() {
                   showBelturs = !showBelturs;
+                  if (showBelturs) {
+                    _addBelturs();
+                  } else {
+                    _removeBelturs();
+                  }
                 });
               },
               icon:
@@ -142,6 +226,11 @@ class MapState extends State<Map> {
             onPressed: () {
               setState(() {
                 showStations = !showStations;
+                if (showStations) {
+                  _addStations();
+                } else {
+                  _removeStations();
+                }
               });
             },
             icon: showStations

@@ -1,4 +1,6 @@
+import 'package:bikemate/pages/flutter_walkthrough_screen.dart';
 import 'package:bikemate/pages/notifications.dart';
+import 'package:bikemate/pages/onboarding.dart';
 import 'package:bikemate/pages/search.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +16,9 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Welcome.route,
+      initialRoute: OnBoarding.route,
       routes: {
+        OnBoarding.route: (context) => OnBoarding(),
         Welcome.route: (context) => const Welcome(),
         Login.route: (context) => const Login(),
         Map.route: (context) => Map(),

@@ -1,13 +1,10 @@
 import 'dart:async';
 import 'package:bikemate/components/map/collapsed_panel.dart';
 import 'package:bikemate/components/map/floating_panel.dart';
-import 'package:custom_marker/marker_icon.dart';
-import 'package:bikemate/UI/images.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'locations.dart';
 
 class Map extends StatefulWidget {
@@ -25,7 +22,7 @@ class MapState extends State<Map> {
 
   Set<Marker> _markers = Set();
 
-  static final CameraPosition _kGoogle = const CameraPosition(
+  CameraPosition _kGoogle = const CameraPosition(
     target: LatLng(41.02, 28.95),
     zoom: 14.4746,
   );
@@ -83,10 +80,12 @@ class MapState extends State<Map> {
               })
             },
             minHeight: 120,
-            maxHeight: 700,
+            maxHeight: 750,
             renderPanelSheet: false,
             panel: FloatingPanel(
               isPanelOpen: isPanelOpen,
+              locations: Location.locations,
+              userLocation: _kGoogle,
             ),
             controller: _pc,
             collapsed: Container(
@@ -101,6 +100,12 @@ class MapState extends State<Map> {
                 )),
             body: Center(
               child: GoogleMap(
+                onTap: (argument) => {
+                  setState(() {
+                    _pc.close();
+                    isPanelOpen = false;
+                  })
+                },
                 zoomGesturesEnabled: true,
                 myLocationEnabled: true,
                 myLocationButtonEnabled: false,
@@ -110,33 +115,35 @@ class MapState extends State<Map> {
               ),
             ),
           ),
-          Positioned(
-            bottom: 110,
-            right: 24,
-            child: CircleAvatar(
-              radius: 30,
-              backgroundColor: Colors.blue,
-              child: IconButton(
-                color: Colors.white,
-                icon: Icon(Icons.gps_fixed),
-                onPressed: () async {
-                  getUserCurrentLocation().then((value) async {
-                    // specified current users location
-                    CameraPosition cameraPosition = new CameraPosition(
-                      target: LatLng(value.latitude, value.longitude),
-                      zoom: 14,
-                    );
+          !isPanelOpen
+              ? Positioned(
+                  bottom: 110,
+                  right: 24,
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.blue,
+                    child: IconButton(
+                      color: Colors.white,
+                      icon: Icon(Icons.gps_fixed),
+                      onPressed: () async {
+                        getUserCurrentLocation().then((value) async {
+                          // specified current users location
+                          _kGoogle = new CameraPosition(
+                            target: LatLng(value.latitude, value.longitude),
+                            zoom: 14,
+                          );
 
-                    final GoogleMapController controller =
-                        await _controller.future;
-                    controller.animateCamera(
-                        CameraUpdate.newCameraPosition(cameraPosition));
-                    setState(() {});
-                  });
-                },
-              ),
-            ),
-          )
+                          final GoogleMapController controller =
+                              await _controller.future;
+                          controller.animateCamera(
+                              CameraUpdate.newCameraPosition(_kGoogle));
+                          setState(() {});
+                        });
+                      },
+                    ),
+                  ),
+                )
+              : Container()
         ],
       ),
     );

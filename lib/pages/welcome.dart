@@ -12,7 +12,7 @@ import 'package:bikemate/UI/images.dart';
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
 
-  static const route = "/";
+  static const route = "/welcome";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,8 +1,6 @@
 import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/pages/locations.dart';
 import 'package:custom_marker/marker_icon.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -156,65 +154,81 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
         ),
       ),
       margin: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
         children: [
-          IconButton(
-            iconSize: 40,
-            onPressed: () {
-              widget.pc.open();
-              setState(() {
-                widget.isPanelOpen = true;
-              });
-            },
-            icon: Icon(Icons.search),
+          SizedBox(
+            height: 5,
           ),
-          IconButton(
-            iconSize: 40,
-            onPressed: () async {
-              showIsbikes = !showIsbikes;
-              if (showIsbikes) {
-                await _addIsbikes();
-              } else {
-                await _removeIsbikes();
-              }
-              widget.callback();
-            },
-            icon: showIsbikes ? Images.isbikeLogo : Images.disabledIsbikeLogo,
+          Container(
+            width: 30,
+            height: 5,
+            decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.all(Radius.circular(12.0))),
           ),
-          IconButton(
-            iconSize: 40,
-            onPressed: () async {
-              showBelturs = !showBelturs;
-              if (showBelturs) {
-                await _addBelturs();
-              } else {
-                await _removeBelturs();
-              }
-              widget.callback();
-            },
-            icon: showBelturs ? Images.belturLogo : Images.disabledBelturLogo,
-          ),
-          IconButton(
-            iconSize: 40,
-            onPressed: () async {
-              showStations = !showStations;
-              if (showStations) {
-                await _addStations();
-              } else {
-                await _removeStations();
-              }
-              widget.callback();
-            },
-            icon: showStations
-                ? Icon(
-                    FontAwesomeIcons.wrench,
-                    color: Colors.orange,
-                  )
-                : Icon(
-                    FontAwesomeIcons.wrench,
-                    color: Colors.grey,
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                iconSize: 40,
+                onPressed: () {
+                  widget.pc.open();
+                  setState(() {
+                    widget.isPanelOpen = true;
+                  });
+                },
+                icon: Icon(Icons.search),
+              ),
+              IconButton(
+                iconSize: 40,
+                onPressed: () async {
+                  showIsbikes = !showIsbikes;
+                  if (showIsbikes) {
+                    await _addIsbikes();
+                  } else {
+                    await _removeIsbikes();
+                  }
+                  widget.callback();
+                },
+                icon:
+                    showIsbikes ? Images.isbikeLogo : Images.disabledIsbikeLogo,
+              ),
+              IconButton(
+                iconSize: 40,
+                onPressed: () async {
+                  showBelturs = !showBelturs;
+                  if (showBelturs) {
+                    await _addBelturs();
+                  } else {
+                    await _removeBelturs();
+                  }
+                  widget.callback();
+                },
+                icon:
+                    showBelturs ? Images.belturLogo : Images.disabledBelturLogo,
+              ),
+              IconButton(
+                iconSize: 40,
+                onPressed: () async {
+                  showStations = !showStations;
+                  if (showStations) {
+                    await _addStations();
+                  } else {
+                    await _removeStations();
+                  }
+                  widget.callback();
+                },
+                icon: showStations
+                    ? Icon(
+                        FontAwesomeIcons.wrench,
+                        color: Colors.orange,
+                      )
+                    : Icon(
+                        FontAwesomeIcons.wrench,
+                        color: Colors.grey,
+                      ),
+              ),
+            ],
           ),
         ],
       ),

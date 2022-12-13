@@ -89,15 +89,20 @@ class MapState extends State<Map> {
             ),
             controller: _pc,
             collapsed: Container(
-                child: CollapsedPanel(
-                  isPanelOpen: isPanelOpen,
-                  pc: _pc,
-                  markers: _markers,
-                  callback: refresh,
-                ),
-                margin: EdgeInsets.only(
-                  bottom: 30,
-                )),
+              child: CollapsedPanel(
+                isPanelOpen: isPanelOpen,
+                pc: _pc,
+                markers: _markers,
+                callback: refresh,
+              ),
+              margin: EdgeInsets.only(
+                bottom: 30,
+              ),
+            ),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30.0),
+              topRight: Radius.circular(30.0),
+            ),
             body: Center(
               child: GoogleMap(
                 onTap: (argument) => {

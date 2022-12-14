@@ -10,8 +10,13 @@ class CollapsedPanel extends StatefulWidget {
   var isPanelOpen;
   var markers;
   Function callback;
+  Function changeDetails;
   CollapsedPanel(
-      {this.pc, this.isPanelOpen, this.markers, required this.callback});
+      {this.pc,
+      this.isPanelOpen,
+      this.markers,
+      required this.callback,
+      required this.changeDetails});
 
   @override
   State<CollapsedPanel> createState() => _CollapsedPanelState();
@@ -43,6 +48,9 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
             infoWindow: InfoWindow(
               title: location.name,
             ),
+            onTap: () => {
+              widget.changeDetails(true, location),
+            },
           );
 
           widget.markers.add(marker);
@@ -86,6 +94,9 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
             infoWindow: InfoWindow(
               title: location.name,
             ),
+            onTap: () => {
+              widget.changeDetails(true, location),
+            },
           );
 
           widget.markers.add(marker);
@@ -123,6 +134,9 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
             infoWindow: InfoWindow(
               title: location.name,
             ),
+            onTap: () => {
+              widget.changeDetails(true, location),
+            },
           );
 
           widget.markers.add(marker);

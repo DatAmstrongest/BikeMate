@@ -70,4 +70,17 @@ class Images {
     path + "smallPostPhoto.png",
     fit: BoxFit.cover,
   );
+
+  static Widget location1 =
+      Image.asset(path + "location1.jpg", fit: BoxFit.fill);
+  static Widget location2 =
+      Image.asset(path + "location2.jpg", fit: BoxFit.fill);
+  static Widget location3 =
+      Image.asset(path + "location3.jpg", fit: BoxFit.fill);
+  static Widget location4 =
+      Image.asset(path + "location4.jpg", fit: BoxFit.fill);
+  static Widget location5 =
+      Image.asset(path + "location5.jpg", fit: BoxFit.fill);
+  static Widget location6 =
+      Image.asset(path + "location6.jpg", fit: BoxFit.fill);
 }

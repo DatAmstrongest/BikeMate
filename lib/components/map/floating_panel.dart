@@ -9,8 +9,13 @@ class FloatingPanel extends StatefulWidget {
   final isPanelOpen;
   final locations;
   final userLocation;
+  Function changeDetails;
   var queryFound = false;
-  FloatingPanel({this.isPanelOpen, this.locations, this.userLocation});
+  FloatingPanel(
+      {this.isPanelOpen,
+      this.locations,
+      this.userLocation,
+      required this.changeDetails});
 
   @override
   State<FloatingPanel> createState() => _FloatingPanelState();
@@ -101,6 +106,10 @@ class _FloatingPanelState extends State<FloatingPanel> {
                               width: 400,
                               height: 70,
                               child: ListTile(
+                                enabled: true,
+                                onTap: () => {
+                                  widget.changeDetails(true, items[index]),
+                                },
                                 leading: items[index].type == "isbike"
                                     ? Images.isbikeLogo
                                     : items[index].type == "beltur"

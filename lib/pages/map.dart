@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bikemate/components/map/collapsed_panel.dart';
+import 'package:bikemate/components/map/details_floating_panel.dart';
 import 'package:bikemate/components/map/floating_panel.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,16 @@ class MapState extends State<Map> {
   final PanelController _pc = PanelController();
   var isPanelOpen = false;
 
+  var isDetails = false;
+  var detailsLocation;
+
   refresh() {
+    setState(() {});
+  }
+
+  void setDetails(value, location) {
+    isDetails = value;
+    detailsLocation = location;
     setState(() {});
   }
 
@@ -82,19 +92,25 @@ class MapState extends State<Map> {
             minHeight: 120,
             maxHeight: 750,
             renderPanelSheet: false,
-            panel: FloatingPanel(
-              isPanelOpen: isPanelOpen,
-              locations: Location.locations,
-              userLocation: _kGoogle,
-            ),
+            panel: isDetails
+                ? DetailsFloatingPanel(location: detailsLocation)
+                : FloatingPanel(
+                    isPanelOpen: isPanelOpen,
+                    locations: Location.locations,
+                    userLocation: _kGoogle,
+                    changeDetails: setDetails,
+                  ),
             controller: _pc,
             collapsed: Container(
-              child: CollapsedPanel(
-                isPanelOpen: isPanelOpen,
-                pc: _pc,
-                markers: _markers,
-                callback: refresh,
-              ),
+              child: isDetails
+                  ? Container()
+                  : CollapsedPanel(
+                      isPanelOpen: isPanelOpen,
+                      pc: _pc,
+                      markers: _markers,
+                      callback: refresh,
+                      changeDetails: setDetails,
+                    ),
               margin: EdgeInsets.only(
                 bottom: 30,
               ),

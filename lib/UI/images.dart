@@ -71,6 +71,7 @@ class Images {
     fit: BoxFit.cover,
   );
 
+  //Locations
   static Widget location1 =
       Image.asset(path + "location1.jpg", fit: BoxFit.fill);
   static Widget location2 =

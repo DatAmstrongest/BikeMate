@@ -1,3 +1,4 @@
+import 'package:bikemate/components/tabs/comment_tab.dart';
 import 'package:bikemate/components/tabs/photo_tab.dart';
 import 'package:bikemate/pages/locations.dart';
 import 'package:bikemate/styles/text_styles.dart';
@@ -7,7 +8,8 @@ import 'package:flutter/material.dart';
 
 class DetailsFloatingPanel extends StatelessWidget {
   final Location location;
-  const DetailsFloatingPanel({required this.location});
+  Function changeDetails;
+  DetailsFloatingPanel({required this.location, required this.changeDetails});
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +36,24 @@ class DetailsFloatingPanel extends StatelessWidget {
               height: 10,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  location.name,
-                  style: TextStyles.profileBoldTextStyle,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      location.name,
+                      style: TextStyles.profileBoldTextStyle,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        changeDetails(false, location);
+                      },
+                      iconSize: 30,
+                      color: Colors.grey,
+                      icon: Icon(Icons.cancel),
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: 10,
@@ -63,10 +79,10 @@ class DetailsFloatingPanel extends StatelessWidget {
                         ],
                       ),
                       Container(
-                        height: 610,
+                        height: 590,
                         child: TabBarView(children: <Widget>[
                           PhotoTab(images: location.images),
-                          Text("Koç"),
+                          CommentTab(comments: location.comments),
                           Text("ad"),
                         ]),
                       )

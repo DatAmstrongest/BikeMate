@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:bikemate/components/map/collapsed_panel.dart';
 import 'package:bikemate/components/map/details_floating_panel.dart';
 import 'package:bikemate/components/map/floating_panel.dart';
+import 'package:bikemate/styles/app_colors.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -93,7 +94,10 @@ class MapState extends State<Map> {
             maxHeight: 750,
             renderPanelSheet: false,
             panel: isDetails
-                ? DetailsFloatingPanel(location: detailsLocation)
+                ? DetailsFloatingPanel(
+                    location: detailsLocation,
+                    changeDetails: setDetails,
+                  )
                 : FloatingPanel(
                     isPanelOpen: isPanelOpen,
                     locations: Location.locations,
@@ -125,6 +129,7 @@ class MapState extends State<Map> {
                   setState(() {
                     _pc.close();
                     isPanelOpen = false;
+                    isDetails = false;
                   })
                 },
                 zoomGesturesEnabled: true,
@@ -136,32 +141,29 @@ class MapState extends State<Map> {
               ),
             ),
           ),
-          !isPanelOpen
+          !isPanelOpen && !isDetails
               ? Positioned(
                   bottom: 110,
                   right: 24,
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.blue,
-                    child: IconButton(
-                      color: Colors.white,
-                      icon: Icon(Icons.gps_fixed),
-                      onPressed: () async {
-                        getUserCurrentLocation().then((value) async {
-                          // specified current users location
-                          _kGoogle = new CameraPosition(
-                            target: LatLng(value.latitude, value.longitude),
-                            zoom: 14,
-                          );
+                  child: IconButton(
+                    iconSize: 30,
+                    color: Colors.blue.shade900,
+                    icon: Icon(Icons.gps_fixed),
+                    onPressed: () async {
+                      getUserCurrentLocation().then((value) async {
+                        // specified current users location
+                        _kGoogle = new CameraPosition(
+                          target: LatLng(value.latitude, value.longitude),
+                          zoom: 14,
+                        );
 
-                          final GoogleMapController controller =
-                              await _controller.future;
-                          controller.animateCamera(
-                              CameraUpdate.newCameraPosition(_kGoogle));
-                          setState(() {});
-                        });
-                      },
-                    ),
+                        final GoogleMapController controller =
+                            await _controller.future;
+                        controller.animateCamera(
+                            CameraUpdate.newCameraPosition(_kGoogle));
+                        setState(() {});
+                      });
+                    },
                   ),
                 )
               : Container()

@@ -1,4 +1,5 @@
 import 'package:bikemate/UI/images.dart';
+import 'package:bikemate/components/tabs/comment.dart';
 import 'package:flutter/material.dart';
 
 class Location {
@@ -8,9 +9,16 @@ class Location {
   final lng;
   final address;
   final images;
+  final comments;
 
   Location(
-      {this.type, this.name, this.lat, this.lng, this.images, this.address});
+      {this.type,
+      this.name,
+      this.lat,
+      this.lng,
+      this.images,
+      this.address,
+      this.comments});
 
   static List<Location> locations = [
     Location(
@@ -27,6 +35,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -43,6 +52,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -58,6 +68,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -73,6 +84,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -88,6 +100,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -103,6 +116,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -118,6 +132,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -133,6 +148,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -148,6 +164,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -164,6 +181,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "isbike",
@@ -179,6 +197,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "beltur",
@@ -194,6 +213,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "beltur",
@@ -210,6 +230,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "beltur",
@@ -225,6 +246,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "beltur",
@@ -241,6 +263,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "beltur",
@@ -256,6 +279,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "beltur",
@@ -272,6 +296,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "station",
@@ -287,6 +312,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "station",
@@ -303,6 +329,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "station",
@@ -318,6 +345,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "station",
@@ -334,6 +362,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
     Location(
       type: "station",
@@ -349,6 +378,7 @@ class Location {
         Images.location5,
         Images.location6
       ],
+      comments: Comment.comments,
     ),
   ];
 }

@@ -1,10 +1,16 @@
 import 'package:bikemate/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'flutter_walkthrough_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'welcome.dart';
 
 class OnBoarding extends StatelessWidget {
   OnBoarding({Key? key}) : super(key: key);
+
+  void loadPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool("firstLogin", true);
+  }
 
   static const route = "/";
   final List<OnbordingData> list = [
@@ -108,6 +114,7 @@ class OnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    loadPreferences();
     return IntroScreen(
       onbordingDataList: list,
       colors: [],

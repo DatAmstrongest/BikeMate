@@ -68,7 +68,9 @@ class Images {
   );
   static Widget smallPostImage = Image.asset(
     path + "smallPostPhoto.png",
-    fit: BoxFit.cover,
+    width: 136,
+    height: 136,
+    fit: BoxFit.fill,
   );
 
   //Locations

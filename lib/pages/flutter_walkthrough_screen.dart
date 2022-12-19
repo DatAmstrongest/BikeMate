@@ -3,11 +3,12 @@
 // found in the LICENSE file.
 
 library walkthrough_screen;
+
 import 'package:flutter/material.dart';
 
 class OnbordingData extends StatelessWidget {
   ///Contain the list of ImageProvider such as Network Asset,SVG etc Images
-  final ImageProvider<Object> image;
+  final image;
 
   ///Title text
   final Widget titleText;
@@ -138,7 +139,6 @@ class IntroScreen extends StatefulWidget {
 
   ///
 
-
   ///
   final Widget lastButton;
 
@@ -161,7 +161,6 @@ class IntroScreen extends StatefulWidget {
       this.selectedDotColor,
       this.unSelectdDotColor,
       this.gradient,
-
       required this.lastButton,
       required this.skipButton});
 
@@ -217,8 +216,8 @@ class IntroScreenState extends State<IntroScreen> {
         decoration: BoxDecoration(
           gradient: widget.gradient == null
               ? LinearGradient(colors: [
-              Color.fromRGBO(10, 78, 131, 1),
-            Color.fromRGBO(10, 78, 131, 1),
+                  Color.fromRGBO(10, 78, 131, 1),
+                  Color.fromRGBO(10, 78, 131, 1),
                 ])
               : widget.gradient,
           color: widget.colors.length < widget.onbordingDataList.length
@@ -260,7 +259,7 @@ class IntroScreenState extends State<IntroScreen> {
                     ),
                   ),
                   TextButton(
-                    child: lastPage ? widget.lastButton : Container() ,
+                    child: lastPage ? widget.lastButton : Container(),
                     onPressed: () => lastPage
                         ? widget.skipPage(context)
                         : controller.nextPage(

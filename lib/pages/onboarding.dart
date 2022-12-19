@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'flutter_walkthrough_screen.dart';
 import 'welcome.dart';
 
-
-
 class OnBoarding extends StatelessWidget {
   OnBoarding({Key? key}) : super(key: key);
 
@@ -25,9 +23,7 @@ class OnBoarding extends StatelessWidget {
               text: "\nBikeMate!",
               style: TextStyles.frontTitleStyle,
             ),
-            TextSpan(
-                text: "\nTry us",
-                style: TextStyles.frontTitleStyle),
+            TextSpan(text: "\nTry us", style: TextStyles.frontTitleStyle),
           ],
         ),
       ),
@@ -69,7 +65,7 @@ class OnBoarding extends StatelessWidget {
           children: [
             TextSpan(
               text:
-              "24x7 help available for all your requirements! Increase your biking knowledge and passion! Check our map for detailed information about specific locations, tools and routes.",
+                  "24x7 help available for all your requirements! Increase your biking knowledge and passion! Check our map for detailed information about specific locations, tools and routes.",
               style: TextStyles.frontTextStyle,
             ),
           ],
@@ -86,8 +82,7 @@ class OnBoarding extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-                text: "Don't doubt \nand ",
-                style: TextStyles.frontTitleStyle),
+                text: "Don't doubt \nand ", style: TextStyles.frontTitleStyle),
             TextSpan(
               text: "pedal it out! ",
               style: TextStyles.frontTitleStyle,
@@ -126,7 +121,6 @@ class OnBoarding extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-
       skipButton: Text(
         "SKIP",
         style: TextStyle(

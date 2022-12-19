@@ -38,7 +38,7 @@ class Profile extends StatelessWidget {
                 CircleAvatar(
                   radius: 80,
                   backgroundImage:
-                  AssetImage("assets/images/profilePhoto1.jpg"),
+                      AssetImage("assets/images/profilePhoto1.jpg"),
                 ),
                 Positioned(
                   right: 10,
@@ -168,49 +168,46 @@ class Profile extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: newArr
                       .map((e) => Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 1,
-                          right: 1,
-                          bottom: 1,
-                        ),
-                        child: Column(
-                          children: [Images.smallPostImage],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 1,
-                          right: 1,
-                          bottom: 1,
-                        ),
-                        child: Column(
-                          children: [Images.smallPostImage],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 1,
-                          right: 1,
-                          bottom: 1,
-                        ),
-                        child: Column(
-                          children: [Images.smallPostImage],
-                        ),
-                      ),
-                ],
-                  ))
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 1,
+                                  right: 1,
+                                  bottom: 1,
+                                ),
+                                child: Column(
+                                  children: [Images.smallPostImage],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 1,
+                                  right: 1,
+                                  bottom: 1,
+                                ),
+                                child: Column(
+                                  children: [Images.smallPostImage],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 1,
+                                  right: 1,
+                                  bottom: 1,
+                                ),
+                                child: Column(
+                                  children: [Images.smallPostImage],
+                                ),
+                              ),
+                            ],
+                          ))
                       .toList(),
                 ),
               ),
-            ),
             ),
           ],
         ),

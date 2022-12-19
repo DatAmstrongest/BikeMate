@@ -50,17 +50,18 @@ class Images {
   //****** Images ******//
 
   static Widget avatarImage = Image.asset(
-    path + "avatar.jpg",
+    path + "profile/" + "avatar.jpg",
   );
 
   static Widget profileImage1 = Image.asset(
-    path + "profilePhoto1.jpg",
+    path + "profile/" + "profilePhoto1.jpg",
   );
 
-  static Widget profileImage2 = Image.asset(path + "profilePhoto2.jpg");
+  static Widget profileImage2 =
+      Image.asset(path + "profile/" + "profilePhoto2.jpg");
 
   static Widget smallerProfileImage2 =
-      Image.asset(path + "smallerProfilePhoto2.jpg");
+      Image.asset(path + "profile/" + "smallerProfilePhoto2.jpg");
 
   static Widget postImage = Image.asset(
     path + "postPhoto.jpg",

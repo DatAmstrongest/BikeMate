@@ -15,7 +15,7 @@ class OnBoarding extends StatelessWidget {
   static const route = "/";
   final List<OnbordingData> list = [
     OnbordingData(
-      image: AssetImage("assets/images/pic1.jpg"),
+      image: AssetImage("assets/images/walkthrough/pic1.jpg"),
       fit: BoxFit.cover,
       imageHeight: 290,
       titleText: RichText(
@@ -48,7 +48,7 @@ class OnBoarding extends StatelessWidget {
       descPadding: EdgeInsets.symmetric(horizontal: 22.0),
     ),
     OnbordingData(
-      image: AssetImage("assets/images/pic3.jpg"),
+      image: AssetImage("assets/images/walkthrough/pic3.jpg"),
       fit: BoxFit.cover,
       imageHeight: 250,
       titleText: RichText(
@@ -80,7 +80,7 @@ class OnBoarding extends StatelessWidget {
       descPadding: EdgeInsets.symmetric(horizontal: 22.0),
     ),
     OnbordingData(
-      image: AssetImage("assets/images/pic2.jpg"),
+      image: AssetImage("assets/images/walkthrough/pic2.jpg"),
       fit: BoxFit.cover,
       imageHeight: 290,
       titleText: RichText(

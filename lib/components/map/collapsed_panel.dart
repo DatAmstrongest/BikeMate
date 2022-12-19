@@ -32,7 +32,7 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
     await MarkerIcon.pictureAsset(
       width: 50,
       height: 50,
-      assetPath: "assets/images/logos/isbikeLogo.png",
+      assetPath: "assets/images/isbikeLogo.png",
     ).then(
       (onValue) {
         myIcon = onValue;
@@ -77,7 +77,7 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
     await MarkerIcon.pictureAsset(
       width: 80,
       height: 80,
-      assetPath: "assets/images/logos/belturLogo.jpeg",
+      assetPath: "assets/images/belturLogo.jpeg",
     ).then(
       (onValue) {
         myIcon = onValue;

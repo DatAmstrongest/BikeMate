@@ -143,6 +143,46 @@ class MapState extends State<Map> {
           ),
           !isPanelOpen && !isDetails
               ? Positioned(
+                  bottom: 450,
+                  right: 24,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.add,
+                      size: 40,
+                      color: Colors.blue.shade900,
+                    ),
+                    onPressed: () async {
+                      final GoogleMapController controller =
+                          await _controller.future;
+                      var currentZoomLevel = await controller.getZoomLevel();
+
+                      currentZoomLevel = currentZoomLevel + 2;
+
+                      controller.animateCamera(CameraUpdate.zoomIn());
+                    },
+                  ),
+                )
+              : Container(),
+          !isPanelOpen && !isDetails
+              ? Positioned(
+                  bottom: 410,
+                  right: 24,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.remove,
+                      size: 40,
+                      color: Colors.blue.shade900,
+                    ),
+                    onPressed: () async {
+                      final GoogleMapController controller =
+                          await _controller.future;
+                      controller.animateCamera(CameraUpdate.zoomOut());
+                    },
+                  ),
+                )
+              : Container(),
+          !isPanelOpen && !isDetails
+              ? Positioned(
                   bottom: 110,
                   right: 24,
                   child: IconButton(

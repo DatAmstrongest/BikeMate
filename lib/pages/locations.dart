@@ -1,5 +1,6 @@
 import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/components/tabs/comment/comment.dart';
+import 'package:bikemate/components/tabs/event/event.dart';
 import 'package:flutter/material.dart';
 
 class Location {
@@ -10,15 +11,18 @@ class Location {
   final address;
   final images;
   final comments;
+  final events;
 
-  Location(
-      {this.type,
-      this.name,
-      this.lat,
-      this.lng,
-      this.images,
-      this.address,
-      this.comments});
+  Location({
+    this.type,
+    this.name,
+    this.lat,
+    this.lng,
+    this.images,
+    this.address,
+    this.comments,
+    this.events,
+  });
 
   static List<Location> locations = [
     Location(
@@ -36,6 +40,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -53,6 +58,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -69,6 +75,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -85,6 +92,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -101,6 +109,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -117,6 +126,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -133,6 +143,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -149,6 +160,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -165,6 +177,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -182,6 +195,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "isbike",
@@ -198,6 +212,7 @@ class Location {
         Images.location6
       ],
       comments: Comment.comments,
+      events: Event.events,
     ),
     Location(
       type: "beltur",

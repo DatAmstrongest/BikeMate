@@ -47,7 +47,7 @@ class Images {
     child: isbikeLogo,
   );
 
-  //****** Images ******//
+  //****** Profile ******//
 
   static Widget avatarImage = Image.asset(
     path + "profile/" + "avatar.jpg",
@@ -57,12 +57,29 @@ class Images {
     path + "profile/" + "profilePhoto1.jpg",
   );
 
+  static Widget participantPhoto1 = Image.asset(
+    path + "profile/" + "participantPhoto1.jpg",
+  );
+
+  static Widget participantPhoto2 = Image.asset(
+    path + "profile/" + "participantPhoto2.jpg",
+  );
+
+  static Widget participantPhoto3 = Image.asset(
+    path + "profile/" + "participantPhoto3.jpg",
+  );
+
+  static Widget participantPhoto4 = Image.asset(
+    path + "profile/" + "participantPhoto4.jpg",
+  );
+
   static Widget profileImage2 =
       Image.asset(path + "profile/" + "profilePhoto2.jpg");
 
   static Widget smallerProfileImage2 =
       Image.asset(path + "profile/" + "smallerProfilePhoto2.jpg");
 
+  //****** Posts ******//
   static Widget postImage = Image.asset(
     path + "postPhoto.jpg",
     fit: BoxFit.contain,

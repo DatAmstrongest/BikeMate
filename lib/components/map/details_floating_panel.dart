@@ -1,4 +1,5 @@
 import 'package:bikemate/components/tabs/comment/comment_tab.dart';
+import 'package:bikemate/components/tabs/event/event_tab.dart';
 import 'package:bikemate/components/tabs/photo_tab.dart';
 import 'package:bikemate/pages/locations.dart';
 import 'package:bikemate/styles/text_styles.dart';
@@ -86,7 +87,7 @@ class DetailsFloatingPanel extends StatelessWidget {
                             comments: location.comments,
                             locationName: location.name,
                           ),
-                          Text("ad"),
+                          EventTab(),
                         ]),
                       )
                     ],

@@ -63,7 +63,7 @@ class MapState extends State<Map> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Event Map'),
-        backgroundColor: Colors.green[700],
+        backgroundColor: AppColors.backgroundColor2,
       ),
       body: Stack(
         children: [

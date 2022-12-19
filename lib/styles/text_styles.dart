@@ -244,4 +244,13 @@ class TextStyles {
       color: AppColors.standardTextColor,
     ),
   );
+
+  //****** Add Comment ******//
+  static final addCommentPublishStyle = GoogleFonts.nunito(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    textStyle: const TextStyle(
+      color: AppColors.navbarSelectedIconColor,
+    ),
+  );
 }

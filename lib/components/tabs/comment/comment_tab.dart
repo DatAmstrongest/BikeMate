@@ -1,13 +1,17 @@
+import 'package:bikemate/components/tabs/comment/add_comment.dart';
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CommentTab extends StatelessWidget {
   final comments;
-  const CommentTab({this.comments});
+  final locationName;
+  const CommentTab({
+    this.comments,
+    this.locationName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class CommentTab extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: 540,
+          height: 530,
           child: ListView.builder(
             // Let the ListView know how many items it needs to build.
             itemCount: comments.length,
@@ -54,14 +58,25 @@ class CommentTab extends StatelessWidget {
             },
           ),
         ),
-        OutlinedButton(
-            onPressed: () {},
-            child: Text(
-              "Add Comment",
-              style: TextStyles.frontButtonStyle,
-            ),
-            style: OutlinedButton.styleFrom(
-                backgroundColor: AppColors.loginButtonColor))
+        Align(
+          child: OutlinedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddComment(
+                      locationName: locationName,
+                    ),
+                  ),
+                );
+              },
+              child: Text(
+                "Add Comment",
+                style: TextStyles.frontButtonStyle,
+              ),
+              style: OutlinedButton.styleFrom(
+                  backgroundColor: AppColors.loginButtonColor)),
+        )
       ],
     );
   }

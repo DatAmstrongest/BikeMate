@@ -1,4 +1,4 @@
-import 'package:bikemate/components/tabs/comment_tab.dart';
+import 'package:bikemate/components/tabs/comment/comment_tab.dart';
 import 'package:bikemate/components/tabs/photo_tab.dart';
 import 'package:bikemate/pages/locations.dart';
 import 'package:bikemate/styles/text_styles.dart';
@@ -75,14 +75,17 @@ class DetailsFloatingPanel extends StatelessWidget {
                         tabs: [
                           Tab(text: 'Photo'),
                           Tab(text: 'Comments'),
-                          Tab(text: 'Active Events'),
+                          Tab(text: 'Events'),
                         ],
                       ),
                       Container(
                         height: 590,
                         child: TabBarView(children: <Widget>[
                           PhotoTab(images: location.images),
-                          CommentTab(comments: location.comments),
+                          CommentTab(
+                            comments: location.comments,
+                            locationName: location.name,
+                          ),
                           Text("ad"),
                         ]),
                       )

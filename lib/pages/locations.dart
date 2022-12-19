@@ -1,5 +1,5 @@
 import 'package:bikemate/UI/images.dart';
-import 'package:bikemate/components/tabs/comment.dart';
+import 'package:bikemate/components/tabs/comment/comment.dart';
 import 'package:flutter/material.dart';
 
 class Location {

@@ -6,37 +6,37 @@ class Images {
   static const path = "assets/images/";
 
   static Widget biggerLogo = SvgPicture.asset(
-    path + "biggerLogo.svg",
+    path + "logos/" + "biggerLogo.svg",
     color: AppColors.logoColor2,
     semanticsLabel: 'A red up arrow',
   );
   static Widget smallerLogo = SvgPicture.asset(
-    path + "smallerLogo.svg",
+    path + "logos/" + "smallerLogo.svg",
     color: AppColors.logoColor2,
     semanticsLabel: 'A red up arrow',
   );
 
   static Widget smallestLogo = SvgPicture.asset(
-    path + "smallestLogo.svg",
+    path + "logos/" + "smallestLogo.svg",
     color: AppColors.logoColor1,
     semanticsLabel: 'A red up arrow',
   );
 
   static Widget belturLogo = Container(
       child: SvgPicture.asset(
-    path + "belturLogo.svg",
+    path + "logos/" + "belturLogo.svg",
     fit: BoxFit.fill,
   ));
 
   static Widget disabledBelturLogo = Container(
       child: SvgPicture.asset(
     color: Colors.black,
-    path + "belturLogo.svg",
+    path + "logos/" + "belturLogo.svg",
     fit: BoxFit.fill,
   ));
 
   static Widget isbikeLogo = Image.asset(
-    "assets/images/isbikeLogo.png",
+    path + "logos/" + "isbikeLogo.png",
   );
 
   static Widget disabledIsbikeLogo = ColorFiltered(
@@ -75,15 +75,15 @@ class Images {
 
   //Locations
   static Widget location1 =
-      Image.asset(path + "location1.jpg", fit: BoxFit.fill);
+      Image.asset(path + "locations/" + "location1.jpg", fit: BoxFit.fill);
   static Widget location2 =
-      Image.asset(path + "location2.jpg", fit: BoxFit.fill);
+      Image.asset(path + "locations/" + "location2.jpg", fit: BoxFit.fill);
   static Widget location3 =
-      Image.asset(path + "location3.jpg", fit: BoxFit.fill);
+      Image.asset(path + "locations/" + "location3.jpg", fit: BoxFit.fill);
   static Widget location4 =
-      Image.asset(path + "location4.jpg", fit: BoxFit.fill);
+      Image.asset(path + "locations/" + "location4.jpg", fit: BoxFit.fill);
   static Widget location5 =
-      Image.asset(path + "location5.jpg", fit: BoxFit.fill);
+      Image.asset(path + "locations/" + "location5.jpg", fit: BoxFit.fill);
   static Widget location6 =
-      Image.asset(path + "location6.jpg", fit: BoxFit.fill);
+      Image.asset(path + "locations/" + "location6.jpg", fit: BoxFit.fill);
 }

@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Images {
   static const path = "assets/images/";
 
+  //****** Logos ******//
+
   static Widget biggerLogo = SvgPicture.asset(
     path + "logos/" + "biggerLogo.svg",
     color: AppColors.logoColor2,
@@ -91,7 +93,7 @@ class Images {
     fit: BoxFit.fill,
   );
 
-  //Locations
+  //****** Locations ******//
   static Widget location1 =
       Image.asset(path + "locations/" + "location1.jpg", fit: BoxFit.fill);
   static Widget location2 =
@@ -104,4 +106,14 @@ class Images {
       Image.asset(path + "locations/" + "location5.jpg", fit: BoxFit.fill);
   static Widget location6 =
       Image.asset(path + "locations/" + "location6.jpg", fit: BoxFit.fill);
+
+  //****** Events ******//
+  static Widget event1 =
+      Image.asset(path + "events/" + "event1.jpg", fit: BoxFit.fill);
+  static Widget event2 =
+      Image.asset(path + "events/" + "event2.jpg", fit: BoxFit.fill);
+  static Widget event3 =
+      Image.asset(path + "events/" + "event3.jpg", fit: BoxFit.fill);
+  static Widget event4 =
+      Image.asset(path + "events/" + "event4.jpg", fit: BoxFit.fill);
 }

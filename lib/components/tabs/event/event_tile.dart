@@ -34,7 +34,7 @@ class EventTile extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       event.title,
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     SizedBox(
                       height: 8,
@@ -61,7 +61,7 @@ class EventTile extends StatelessWidget {
                         color: AppColors.navbarSelectedIconColor,
                       ),
                       itemCount: 5,
-                      itemSize: 15.0,
+                      itemSize: 17.0,
                       direction: Axis.horizontal,
                     ),
                   ],

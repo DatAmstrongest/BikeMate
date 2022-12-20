@@ -1,5 +1,6 @@
 import 'package:bikemate/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'flutter_walkthrough_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'welcome.dart';
@@ -15,9 +16,9 @@ class OnBoarding extends StatelessWidget {
   static const route = "/";
   final List<OnbordingData> list = [
     OnbordingData(
-      image: AssetImage("assets/images/walkthrough/pic1.jpg"),
+      image: AssetImage('assets/images/walkthrough/pic1.png'),
       fit: BoxFit.cover,
-      imageHeight: 290,
+      imageHeight: 300,
       titleText: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
@@ -48,9 +49,9 @@ class OnBoarding extends StatelessWidget {
       descPadding: EdgeInsets.symmetric(horizontal: 22.0),
     ),
     OnbordingData(
-      image: AssetImage("assets/images/walkthrough/pic3.jpg"),
+      image: AssetImage('assets/images/walkthrough/pic3.png'),
       fit: BoxFit.cover,
-      imageHeight: 250,
+      imageHeight: 300,
       titleText: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
@@ -80,9 +81,9 @@ class OnBoarding extends StatelessWidget {
       descPadding: EdgeInsets.symmetric(horizontal: 22.0),
     ),
     OnbordingData(
-      image: AssetImage("assets/images/walkthrough/pic2.jpg"),
+      image: AssetImage('assets/images/walkthrough/pic2.png'),
       fit: BoxFit.cover,
-      imageHeight: 290,
+      imageHeight: 300,
       titleText: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(

@@ -10,62 +10,71 @@ class AddComment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor2,
-        leading: IconButton(
-          icon: Icon(
-            size: 30,
-            Icons.close,
-            color: AppColors.navbarSelectedIconColor,
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.backgroundColor2,
+          leading: IconButton(
+            icon: Icon(
+              size: 30,
+              Icons.close,
+              color: AppColors.navbarSelectedIconColor,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
           ),
-          onPressed: () => Navigator.of(context).pop(),
+          title: Text(locationName),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Publish", style: TextStyles.addCommentPublishStyle),
+            )
+          ],
         ),
-        title: Text(locationName),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text("Publish", style: TextStyles.addCommentPublishStyle),
-          )
-        ],
-      ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: RatingBar.builder(
-              itemPadding: EdgeInsets.symmetric(horizontal: 15),
-              initialRating: 2.5,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              onRatingUpdate: (rating) {},
+        body: Column(
+          children: [
+            SizedBox(
+              height: 20,
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Share your experience",
-                border: OutlineInputBorder(),
+            Center(
+              child: RatingBar.builder(
+                itemPadding: EdgeInsets.symmetric(horizontal: 15),
+                initialRating: 2.5,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemBuilder: (context, _) => Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (rating) {},
               ),
-              maxLines: 5, // <-- SEE HERE
-              minLines: 5, // <-- SEE HERE
             ),
-          )
-        ],
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Share your experience",
+                  border: OutlineInputBorder(),
+                ),
+                maxLines: 5, // <-- SEE HERE
+                minLines: 5, // <-- SEE HERE
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

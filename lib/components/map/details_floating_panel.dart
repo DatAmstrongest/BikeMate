@@ -2,6 +2,7 @@ import 'package:bikemate/components/tabs/comment/comment_tab.dart';
 import 'package:bikemate/components/tabs/event/event_tab.dart';
 import 'package:bikemate/components/tabs/photo_tab.dart';
 import 'package:bikemate/pages/locations.dart';
+import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -71,7 +72,7 @@ class DetailsFloatingPanel extends StatelessWidget {
                   child: Column(
                     children: [
                       TabBar(
-                        labelColor: Colors.green,
+                        labelColor: AppColors.loginButtonColor,
                         unselectedLabelColor: Colors.black,
                         tabs: [
                           Tab(text: 'Photos'),
@@ -87,7 +88,9 @@ class DetailsFloatingPanel extends StatelessWidget {
                             comments: location.comments,
                             locationName: location.name,
                           ),
-                          EventTab(),
+                          EventTab(
+                            events: location.events,
+                          ),
                         ]),
                       )
                     ],

@@ -38,7 +38,7 @@ class Profile extends StatelessWidget {
                 CircleAvatar(
                   radius: 80,
                   backgroundImage:
-                      AssetImage("assets/images/profilePhoto1.jpg"),
+                      AssetImage("assets/images/profile/profilePhoto1.jpg"),
                 ),
                 Positioned(
                   right: 10,

@@ -108,12 +108,28 @@ class Images {
       Image.asset(path + "locations/" + "location6.jpg", fit: BoxFit.fill);
 
   //****** Events ******//
-  static Widget event1 =
-      Image.asset(path + "events/" + "event1.jpg", fit: BoxFit.fill);
-  static Widget event2 =
-      Image.asset(path + "events/" + "event2.jpg", fit: BoxFit.fill);
-  static Widget event3 =
-      Image.asset(path + "events/" + "event3.jpg", fit: BoxFit.fill);
-  static Widget event4 =
-      Image.asset(path + "events/" + "event4.jpg", fit: BoxFit.fill);
+  static Widget event1 = Image.asset(
+    path + "events/" + "event1.jpg",
+    height: 100,
+    width: 120,
+    fit: BoxFit.cover,
+  );
+  static Widget event2 = Image.asset(
+    path + "events/" + "event2.jpg",
+    height: 100,
+    width: 120,
+    fit: BoxFit.cover,
+  );
+  static Widget event3 = Image.asset(
+    path + "events/" + "event3.jpg",
+    height: 100,
+    width: 120,
+    fit: BoxFit.cover,
+  );
+  static Widget event4 = Image.asset(
+    path + "events/" + "event4.jpg",
+    height: 100,
+    width: 120,
+    fit: BoxFit.cover,
+  );
 }

@@ -40,6 +40,19 @@ class EventDetails extends StatelessWidget {
               ),
             ),
             Positioned(
+                top: 40,
+                left: 10,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )),
+            Positioned(
               left: 50,
               right: 30,
               top: 75,

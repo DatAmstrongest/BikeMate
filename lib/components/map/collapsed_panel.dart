@@ -1,5 +1,6 @@
 import 'package:bikemate/UI/images.dart';
 import 'package:bikemate/pages/locations.dart';
+import 'package:bikemate/styles/app_colors.dart';
 import 'package:custom_marker/marker_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -162,7 +163,7 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.backgroundColor1,
         borderRadius: BorderRadius.all(
           Radius.circular(10.0),
         ),

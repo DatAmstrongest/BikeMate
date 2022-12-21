@@ -17,7 +17,7 @@ class DetailsFloatingPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.backgroundColor1,
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
       child: Padding(
@@ -90,6 +90,7 @@ class DetailsFloatingPanel extends StatelessWidget {
                           ),
                           EventTab(
                             events: location.events,
+                            location: location,
                           ),
                         ]),
                       )

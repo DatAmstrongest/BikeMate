@@ -53,7 +53,7 @@ class _FloatingPanelState extends State<FloatingPanel> {
     return widget.isPanelOpen
         ? Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.backgroundColor1,
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
             child: Column(

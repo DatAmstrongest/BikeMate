@@ -6,7 +6,11 @@ import 'package:flutter/material.dart';
 
 class EventTab extends StatelessWidget {
   final events;
-  const EventTab({this.events});
+  final location;
+  const EventTab({
+    this.events,
+    this.location,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +27,7 @@ class EventTab extends StatelessWidget {
             itemBuilder: (context, index) {
               return EventTile(
                 event: events[index],
+                location: location,
               );
             },
           ),

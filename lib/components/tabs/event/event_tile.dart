@@ -1,4 +1,5 @@
 import 'package:bikemate/UI/images.dart';
+import 'package:bikemate/components/tabs/event/eventDetails/event_details.dart';
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -7,14 +8,23 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class EventTile extends StatelessWidget {
   final event;
-  const EventTile({
-    this.event,
-  });
+  final location;
+  const EventTile({this.event, this.location});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => EventDetails(
+              event: event,
+              location: location,
+            ),
+          ),
+        );
+      },
       child: Container(
         height: 100,
         margin: EdgeInsets.only(bottom: 16),
@@ -40,7 +50,7 @@ class EventTile extends StatelessWidget {
                       height: 8,
                     ),
                     Row(
-                      children: <Widget>[
+                      children: [
                         Icon(Icons.calendar_month),
                         SizedBox(
                           width: 8,

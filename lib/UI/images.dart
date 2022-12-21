@@ -57,22 +57,35 @@ class Images {
 
   static Widget profileImage1 = Image.asset(
     path + "profile/" + "profilePhoto1.jpg",
+    fit: BoxFit.fill,
   );
 
   static Widget participantPhoto1 = Image.asset(
     path + "profile/" + "participantPhoto1.jpg",
+    width: 75,
+    height: 75,
+    fit: BoxFit.fill,
   );
 
   static Widget participantPhoto2 = Image.asset(
     path + "profile/" + "participantPhoto2.jpg",
+    width: 75,
+    height: 75,
+    fit: BoxFit.fill,
   );
 
   static Widget participantPhoto3 = Image.asset(
     path + "profile/" + "participantPhoto3.jpg",
+    width: 75,
+    height: 75,
+    fit: BoxFit.fill,
   );
 
   static Widget participantPhoto4 = Image.asset(
     path + "profile/" + "participantPhoto4.jpg",
+    width: 75,
+    height: 75,
+    fit: BoxFit.fill,
   );
 
   static Widget profileImage2 =

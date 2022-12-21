@@ -18,6 +18,9 @@ class CommentTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(
+          height: 10,
+        ),
         Container(
           height: 530,
           child: ListView.builder(
@@ -27,33 +30,41 @@ class CommentTab extends StatelessWidget {
             // Convert each item into a widget based on the type of item it is.
             itemBuilder: (context, index) {
               final item = comments[index];
-              return ListTile(
-                leading: item.image,
-                title: Text(item.username),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+              return Column(
+                children: [
+                  ListTile(
+                    leading: ClipOval(child: item.mage),
+                    title: Text(item.username),
+                    textColor: Colors.black,
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        RatingBarIndicator(
-                          rating: item.rate.toDouble(),
-                          itemBuilder: (context, index) => Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                          ),
-                          itemCount: 5,
-                          itemSize: 15.0,
-                          direction: Axis.horizontal,
+                        Row(
+                          children: [
+                            RatingBarIndicator(
+                              rating: item.rate.toDouble(),
+                              itemBuilder: (context, index) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              itemCount: 5,
+                              itemSize: 15.0,
+                              direction: Axis.horizontal,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(item.date),
+                          ],
                         ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(item.date),
+                        Text(item.comment),
                       ],
                     ),
-                    Text(item.comment),
-                  ],
-                ),
+                  ),
+                  Divider(
+                    color: AppColors.dividerColor,
+                  ),
+                ],
               );
             },
           ),

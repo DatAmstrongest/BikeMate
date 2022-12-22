@@ -1,4 +1,5 @@
 import 'package:bikemate/UI/images.dart';
+import 'package:bikemate/components/tabs/event/create_event.dart';
 import 'package:bikemate/components/tabs/event/event_tile.dart';
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';
@@ -34,7 +35,14 @@ class EventTab extends StatelessWidget {
         ),
         Align(
           child: OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CreateEvent(),
+                  ),
+                );
+              },
               child: Text(
                 "Create Event",
                 style: TextStyles.frontButtonStyle,

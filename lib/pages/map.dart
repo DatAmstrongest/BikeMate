@@ -7,6 +7,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'locations.dart';
 
 class Map extends StatefulWidget {
@@ -31,7 +32,6 @@ class MapState extends State<Map> {
   Completer<GoogleMapController> _controller = Completer();
   final PanelController _pc = PanelController();
   var isPanelOpen = false;
-
   var isDetails = false;
   var detailsLocation;
 
@@ -56,6 +56,27 @@ class MapState extends State<Map> {
 
   Future<void> _onMapCreated(GoogleMapController controller) async {
     _controller.complete(controller);
+  }
+
+  List<LatLng> polylineCoordinates = [];
+  void getPolyPoints(sourceLocation, destination) async {
+    polylineCoordinates = [];
+    PolylinePoints polylinePoints = PolylinePoints();
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+      "AIzaSyAMq76MCGtRdfMaMoxEs4TabFUWkavsA1Q", // Your Google Map Key
+      PointLatLng(
+          sourceLocation.target.latitude, sourceLocation.target.longitude),
+      PointLatLng(destination.lat, destination.lng),
+    );
+    if (result.points.isNotEmpty) {
+      result.points.forEach(
+        (PointLatLng point) => polylineCoordinates.add(
+          LatLng(point.latitude, point.longitude),
+        ),
+      );
+      _pc.close();
+      setState(() {});
+    }
   }
 
   @override
@@ -90,13 +111,15 @@ class MapState extends State<Map> {
                 }
               })
             },
-            minHeight: 120,
-            maxHeight: 750,
+            minHeight: isDetails ? 170 : 130,
+            maxHeight: 800,
             renderPanelSheet: false,
             panel: isDetails
                 ? DetailsFloatingPanel(
                     location: detailsLocation,
                     changeDetails: setDetails,
+                    drawRoute: getPolyPoints,
+                    currentLocation: _kGoogle,
                   )
                 : FloatingPanel(
                     isPanelOpen: isPanelOpen,
@@ -138,6 +161,14 @@ class MapState extends State<Map> {
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: _kGoogle,
                 markers: _markers,
+                polylines: {
+                  Polyline(
+                    polylineId: const PolylineId("route"),
+                    points: polylineCoordinates,
+                    color: Colors.blue,
+                    width: 6,
+                  ),
+                },
               ),
             ),
           ),

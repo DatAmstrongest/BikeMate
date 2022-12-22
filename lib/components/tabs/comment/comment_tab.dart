@@ -33,7 +33,7 @@ class CommentTab extends StatelessWidget {
               return Column(
                 children: [
                   ListTile(
-                    leading: ClipOval(child: item.mage),
+                    leading: ClipOval(child: item.image),
                     title: Text(item.username),
                     textColor: Colors.black,
                     subtitle: Column(

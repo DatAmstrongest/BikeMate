@@ -4,17 +4,31 @@ import 'package:bikemate/components/tabs/photo_tab.dart';
 import 'package:bikemate/pages/locations.dart';
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DetailsFloatingPanel extends StatelessWidget {
   final Location location;
+  final currentLocation;
   Function changeDetails;
-  DetailsFloatingPanel({required this.location, required this.changeDetails});
+  Function drawRoute;
+
+  DetailsFloatingPanel({
+    required this.location,
+    required this.changeDetails,
+    required this.drawRoute,
+    this.currentLocation,
+  });
 
   @override
   Widget build(BuildContext context) {
+    int totalRate = 0;
+    for (var comment in location.comments) {
+      totalRate += comment.rate as int;
+    }
+    var averateRate = totalRate / location.comments.length;
     return Container(
       decoration: BoxDecoration(
         color: AppColors.backgroundColor1,
@@ -47,6 +61,32 @@ class DetailsFloatingPanel extends StatelessWidget {
                       location.name,
                       style: TextStyles.profileBoldTextStyle,
                     ),
+                    SizedBox(
+                      width: 200,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            averateRate.toString(),
+                          ),
+                          RatingBarIndicator(
+                            rating: averateRate,
+                            itemBuilder: (context, index) => Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            itemCount: 5,
+                            itemSize: 20.0,
+                          ),
+                          Text(
+                            "${location.comments.length} reviews",
+                            style: GoogleFonts.nunito(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     IconButton(
                       onPressed: () {
                         changeDetails(false, location);
@@ -64,6 +104,24 @@ class DetailsFloatingPanel extends StatelessWidget {
                   location.address,
                   maxLines: 2,
                   style: TextStyle(fontWeight: FontWeight.w300),
+                ),
+                OutlinedButton.icon(
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: AppColors.navbarBackgroundColor,
+                  ),
+                  icon: Icon(
+                    Icons.directions,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  onPressed: () async {
+                    await drawRoute(currentLocation, location);
+                  },
+                  label: Text("Directions",
+                      style: GoogleFonts.nunito(
+                        color: Colors.white,
+                        fontSize: 20,
+                      )),
                 ),
                 SizedBox(height: 10),
                 DefaultTabController(

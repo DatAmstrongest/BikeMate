@@ -1,5 +1,5 @@
 import 'package:bikemate/UI/images.dart';
-import 'package:bikemate/components/tabs/event/eventDetails/event_details.dart';
+import 'package:bikemate/components/tabs/event/event_details.dart';
 import 'package:bikemate/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 

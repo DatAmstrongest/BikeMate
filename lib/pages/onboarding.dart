@@ -1,24 +1,26 @@
+import 'package:bikemate/styles/app_colors.dart';
 import 'package:bikemate/styles/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'flutter_walkthrough_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'welcome.dart';
 
 class OnBoarding extends StatelessWidget {
   OnBoarding({Key? key}) : super(key: key);
-
   void loadPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool("firstLogin", true);
   }
 
   static const route = "/";
+
   final List<OnbordingData> list = [
     OnbordingData(
-      image: AssetImage('assets/images/walkthrough/pic1.png'),
+      image: Svg('assets/images/walkthrough/pic1.svg',
+          color: AppColors.navbarIconColor),
       fit: BoxFit.cover,
-      imageHeight: 300,
+      imageHeight: 410,
       titleText: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
@@ -49,9 +51,12 @@ class OnBoarding extends StatelessWidget {
       descPadding: EdgeInsets.symmetric(horizontal: 22.0),
     ),
     OnbordingData(
-      image: AssetImage('assets/images/walkthrough/pic3.png'),
+      image: Svg(
+        'assets/images/walkthrough/pic3.svg',
+        color: AppColors.navbarIconColor,
+      ),
       fit: BoxFit.cover,
-      imageHeight: 300,
+      imageHeight: 400,
       titleText: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
@@ -81,9 +86,12 @@ class OnBoarding extends StatelessWidget {
       descPadding: EdgeInsets.symmetric(horizontal: 22.0),
     ),
     OnbordingData(
-      image: AssetImage('assets/images/walkthrough/pic2.png'),
+      image: Svg(
+        'assets/images/walkthrough/pic2.svg',
+        color: AppColors.navbarIconColor,
+      ),
       fit: BoxFit.cover,
-      imageHeight: 300,
+      imageHeight: 400,
       titleText: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(

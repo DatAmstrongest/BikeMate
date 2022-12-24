@@ -3,6 +3,7 @@ import 'package:bikemate/components/map/collapsed_panel.dart';
 import 'package:bikemate/components/map/details_floating_panel.dart';
 import 'package:bikemate/components/map/floating_panel.dart';
 import 'package:bikemate/styles/app_colors.dart';
+import 'package:flutter/rendering.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -174,70 +175,74 @@ class MapState extends State<Map> {
           ),
           !isPanelOpen && !isDetails
               ? Positioned(
-                  bottom: 450,
+                  bottom: 150,
                   right: 24,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.add,
-                      size: 40,
-                      color: Colors.blue.shade900,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.backgroundColor1,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
                     ),
-                    onPressed: () async {
-                      final GoogleMapController controller =
-                          await _controller.future;
-                      var currentZoomLevel = await controller.getZoomLevel();
+                    child: Column(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.add,
+                            size: 25,
+                            color: Colors.blue.shade900,
+                          ),
+                          onPressed: () async {
+                            final GoogleMapController controller =
+                                await _controller.future;
+                            var currentZoomLevel =
+                                await controller.getZoomLevel();
 
-                      currentZoomLevel = currentZoomLevel + 2;
+                            currentZoomLevel = currentZoomLevel + 2;
 
-                      controller.animateCamera(CameraUpdate.zoomIn());
-                    },
+                            controller.animateCamera(CameraUpdate.zoomIn());
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.remove,
+                            size: 25,
+                            color: Colors.blue.shade900,
+                          ),
+                          onPressed: () async {
+                            final GoogleMapController controller =
+                                await _controller.future;
+                            controller.animateCamera(CameraUpdate.zoomOut());
+                          },
+                        ),
+                        IconButton(
+                          iconSize: 30,
+                          color: Colors.blue.shade900,
+                          icon: Icon(Icons.gps_fixed),
+                          onPressed: () async {
+                            getUserCurrentLocation().then(
+                              (value) async {
+                                // specified current users location
+                                _kGoogle = new CameraPosition(
+                                  target:
+                                      LatLng(value.latitude, value.longitude),
+                                  zoom: 14,
+                                );
+
+                                final GoogleMapController controller =
+                                    await _controller.future;
+                                controller.animateCamera(
+                                    CameraUpdate.newCameraPosition(_kGoogle));
+                                setState(() {});
+                              },
+                            );
+                          },
+                        )
+                      ],
+                    ),
                   ),
                 )
               : Container(),
-          !isPanelOpen && !isDetails
-              ? Positioned(
-                  bottom: 410,
-                  right: 24,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.remove,
-                      size: 40,
-                      color: Colors.blue.shade900,
-                    ),
-                    onPressed: () async {
-                      final GoogleMapController controller =
-                          await _controller.future;
-                      controller.animateCamera(CameraUpdate.zoomOut());
-                    },
-                  ),
-                )
-              : Container(),
-          !isPanelOpen && !isDetails
-              ? Positioned(
-                  bottom: 110,
-                  right: 24,
-                  child: IconButton(
-                    iconSize: 30,
-                    color: Colors.blue.shade900,
-                    icon: Icon(Icons.gps_fixed),
-                    onPressed: () async {
-                      getUserCurrentLocation().then((value) async {
-                        // specified current users location
-                        _kGoogle = new CameraPosition(
-                          target: LatLng(value.latitude, value.longitude),
-                          zoom: 14,
-                        );
-
-                        final GoogleMapController controller =
-                            await _controller.future;
-                        controller.animateCamera(
-                            CameraUpdate.newCameraPosition(_kGoogle));
-                        setState(() {});
-                      });
-                    },
-                  ),
-                )
-              : Container()
         ],
       ),
     );

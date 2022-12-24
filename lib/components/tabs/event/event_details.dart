@@ -21,9 +21,6 @@ class EventDetails extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: 400,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(340),
-                ),
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: event.photo.image,
@@ -34,9 +31,6 @@ class EventDetails extends StatelessWidget {
               height: 400,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(0, 0, 0, 0.5),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(340),
-                ),
               ),
             ),
             Positioned(
@@ -119,19 +113,20 @@ class EventDetails extends StatelessWidget {
             ),
             Positioned(
               left: 10,
-              top: 300,
+              top: 290,
               child: Text(
                 "Participants",
                 style: GoogleFonts.nunito(
                   textStyle: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
             Positioned(
-              height: 120,
+              height: 110,
               left: 5,
               right: 20,
               top: 300,

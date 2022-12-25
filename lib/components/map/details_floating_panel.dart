@@ -134,7 +134,7 @@ class DetailsFloatingPanel extends StatelessWidget {
                         unselectedLabelColor: Colors.black,
                         tabs: [
                           Tab(text: 'Photos'),
-                          Tab(text: 'Comments'),
+                          Tab(text: 'Reviews'),
                           Tab(text: 'Events'),
                         ],
                       ),

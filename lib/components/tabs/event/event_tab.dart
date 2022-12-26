@@ -35,20 +35,21 @@ class EventTab extends StatelessWidget {
         ),
         Align(
           child: OutlinedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CreateEvent(),
-                  ),
-                );
-              },
-              child: Text(
-                "Create Event",
-                style: TextStyles.frontButtonStyle,
-              ),
-              style: OutlinedButton.styleFrom(
-                  backgroundColor: AppColors.loginButtonColor)),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CreateEvent(),
+                ),
+              );
+            },
+            child: Text(
+              "Create Event",
+              style: TextStyles.frontButtonStyle,
+            ),
+            style: OutlinedButton.styleFrom(
+                backgroundColor: AppColors.loginButtonColor),
+          ),
         )
       ],
     );

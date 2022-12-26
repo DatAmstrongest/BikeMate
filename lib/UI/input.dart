@@ -8,9 +8,10 @@ class Input extends StatefulWidget {
   final label;
   final hintText;
   final isPassword;
+  final double height;
   var _passwordVisible = false;
 
-  Input({this.label, this.hintText, this.isPassword});
+  Input({this.label, this.hintText, this.isPassword, required this.height});
 
   @override
   State<Input> createState() => _InputState();
@@ -27,7 +28,7 @@ class _InputState extends State<Input> {
           style: TextStyles.frontLabelStyle,
         ),
         SizedBox(
-          height: 45,
+          height: widget.height,
           child: GestureDetector(
             onTap: () {
               FocusScopeNode currentFocus = FocusScope.of(context);

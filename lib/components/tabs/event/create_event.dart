@@ -18,12 +18,14 @@ class _CreateEventState extends State<CreateEvent> {
   TextEditingController dateinput = TextEditingController();
 
   var limits = ["2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  var status = ["Private", "Public"];
+
   String? dropdownvalue;
+  String? statusValue;
 
   @override
   void initState() {
-    dateinput.text = "";
-    String dropdownvalue = ""; //set the initial value of text field
+    dateinput.text = ""; //set the initial value of text field
     super.initState();
   }
 
@@ -70,12 +72,14 @@ class _CreateEventState extends State<CreateEvent> {
               label: "",
               hintText: "Title",
               isPassword: false,
+              height: 60,
             ),
           ),
           SizedBox(height: 10),
           SizedBox(
             width: 300,
             child: Input(
+              height: 60,
               label: "",
               hintText: "Description",
               isPassword: false,
@@ -160,6 +164,80 @@ class _CreateEventState extends State<CreateEvent> {
                   child: new Text(value),
                 );
               }).toList(),
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          SizedBox(
+            width: 300,
+            height: 60,
+            child: DropdownButtonFormField(
+              onChanged: (String? newValue) {
+                setState(() {
+                  statusValue = newValue!;
+                });
+              },
+              value: statusValue,
+              focusColor: AppColors.navbarBackgroundColor,
+              iconEnabledColor: AppColors.navbarBackgroundColor,
+              decoration: InputDecoration(
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    width: 1.5,
+                    color: AppColors.inputBorderColor,
+                  ),
+                ),
+                filled: true,
+                fillColor: AppColors.inputBackgroundColor,
+              ),
+              hint: Text("Who can see it?"),
+              items: status.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: value == "Public"
+                      ? Row(
+                          children: [
+                            Icon(
+                              Icons.public,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(value),
+                          ],
+                        )
+                      : Row(children: [
+                          Icon(
+                            Icons.lock,
+                            color: Colors.grey,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(value)
+                        ]),
+                );
+              }).toList(),
+            ),
+          ),
+          SizedBox(
+            height: 100,
+          ),
+          SizedBox(
+            width: 300,
+            height: 50,
+            child: OutlinedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Create Event",
+                style: TextStyles.frontButtonStyle,
+              ),
+              style: OutlinedButton.styleFrom(
+                  backgroundColor: AppColors.loginButtonColor),
             ),
           ),
         ],

@@ -46,6 +46,7 @@ class Login extends StatelessWidget {
                     label: "Email",
                     hintText: "Please enter your email",
                     isPassword: false,
+                    height: 45,
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -55,6 +56,7 @@ class Login extends StatelessWidget {
                     label: "Password",
                     hintText: "Please enter your password",
                     isPassword: true,
+                    height: 45,
                   ),
                 ),
                 SizedBox(

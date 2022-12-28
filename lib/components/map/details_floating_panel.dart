@@ -12,14 +12,18 @@ import 'package:google_fonts/google_fonts.dart';
 class DetailsFloatingPanel extends StatelessWidget {
   final Location location;
   final currentLocation;
+  final previousDestination;
   Function changeDetails;
   Function drawRoute;
+  Function cancelRoute;
 
   DetailsFloatingPanel({
     required this.location,
     required this.changeDetails,
     required this.drawRoute,
+    required this.cancelRoute,
     this.currentLocation,
+    this.previousDestination,
   });
 
   @override
@@ -105,24 +109,45 @@ class DetailsFloatingPanel extends StatelessWidget {
                   maxLines: 2,
                   style: TextStyle(fontWeight: FontWeight.w300),
                 ),
-                OutlinedButton.icon(
-                  style: OutlinedButton.styleFrom(
-                    backgroundColor: AppColors.navbarBackgroundColor,
-                  ),
-                  icon: Icon(
-                    Icons.directions,
-                    color: Colors.white,
-                    size: 30,
-                  ),
-                  onPressed: () async {
-                    await drawRoute(currentLocation, location);
-                  },
-                  label: Text("Directions",
-                      style: GoogleFonts.nunito(
-                        color: Colors.white,
-                        fontSize: 20,
-                      )),
-                ),
+                previousDestination != null &&
+                        previousDestination.lat == location.lat &&
+                        previousDestination.lng == location.lng
+                    ? OutlinedButton.icon(
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: AppColors.deleteButtonColor,
+                        ),
+                        icon: Icon(
+                          Icons.cancel,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        onPressed: () async {
+                          await cancelRoute();
+                        },
+                        label: Text("Cancel",
+                            style: GoogleFonts.nunito(
+                              color: Colors.white,
+                              fontSize: 20,
+                            )),
+                      )
+                    : OutlinedButton.icon(
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: AppColors.navbarBackgroundColor,
+                        ),
+                        icon: Icon(
+                          Icons.directions,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () async {
+                          await drawRoute(currentLocation, location);
+                        },
+                        label: Text("Directions",
+                            style: GoogleFonts.nunito(
+                              color: Colors.white,
+                              fontSize: 20,
+                            )),
+                      ),
                 SizedBox(height: 10),
                 DefaultTabController(
                   length: 3,

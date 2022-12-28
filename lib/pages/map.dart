@@ -34,6 +34,8 @@ class MapState extends State<Map> {
   final PanelController _pc = PanelController();
   var isPanelOpen = false;
   var isDetails = false;
+  var isDirections = false;
+  var previousDestination = null;
   var detailsLocation;
 
   refresh() {
@@ -59,9 +61,44 @@ class MapState extends State<Map> {
     _controller.complete(controller);
   }
 
+  void cancelRoute() async {
+    final GoogleMapController controller = await _controller.future;
+
+    setState(() {
+      isDirections = false;
+      polylineCoordinates.clear();
+
+      Polyline route = Polyline(
+        polylineId: const PolylineId("route"),
+        points: [],
+        color: Colors.blue,
+        width: 6,
+      );
+      previousDestination = null;
+      controller.animateCamera(CameraUpdate.zoomBy(4));
+    });
+  }
+
   List<LatLng> polylineCoordinates = [];
+  Polyline route = Polyline(
+    polylineId: const PolylineId("route"),
+    points: [],
+    color: Colors.blue,
+    width: 6,
+  );
   void getPolyPoints(sourceLocation, destination) async {
-    polylineCoordinates = [];
+    if (isDirections &&
+        previousDestination != null &&
+        destination.lat == previousDestination.lat &&
+        destination.lng == previousDestination.lng) {
+      return;
+    }
+    final GoogleMapController controller = await _controller.future;
+    if (!isDirections) {
+      controller.animateCamera(CameraUpdate.zoomBy(-4));
+    }
+    polylineCoordinates.clear();
+
     PolylinePoints polylinePoints = PolylinePoints();
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       "AIzaSyAMq76MCGtRdfMaMoxEs4TabFUWkavsA1Q", // Your Google Map Key
@@ -76,7 +113,16 @@ class MapState extends State<Map> {
         ),
       );
       _pc.close();
-      setState(() {});
+      route = Polyline(
+        polylineId: const PolylineId("route"),
+        points: polylineCoordinates,
+        color: Colors.blue,
+        width: 6,
+      );
+      setState(() {
+        isDirections = true;
+        previousDestination = destination;
+      });
     }
   }
 
@@ -121,6 +167,8 @@ class MapState extends State<Map> {
                     changeDetails: setDetails,
                     drawRoute: getPolyPoints,
                     currentLocation: _kGoogle,
+                    previousDestination: previousDestination,
+                    cancelRoute: cancelRoute,
                   )
                 : FloatingPanel(
                     isPanelOpen: isPanelOpen,
@@ -162,14 +210,7 @@ class MapState extends State<Map> {
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: _kGoogle,
                 markers: _markers,
-                polylines: {
-                  Polyline(
-                    polylineId: const PolylineId("route"),
-                    points: polylineCoordinates,
-                    color: Colors.blue,
-                    width: 6,
-                  ),
-                },
+                polylines: {route},
               ),
             ),
           ),
@@ -195,11 +236,6 @@ class MapState extends State<Map> {
                           onPressed: () async {
                             final GoogleMapController controller =
                                 await _controller.future;
-                            var currentZoomLevel =
-                                await controller.getZoomLevel();
-
-                            currentZoomLevel = currentZoomLevel + 2;
-
                             controller.animateCamera(CameraUpdate.zoomIn());
                           },
                         ),

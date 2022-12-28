@@ -12,8 +12,6 @@ class PhotoTab extends StatelessWidget {
         padding: EdgeInsets.only(
           top: 10,
         ),
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
         crossAxisCount: 2,
         children: List.generate(images.length, (index) {
           return SizedBox(

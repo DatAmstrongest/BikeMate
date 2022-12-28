@@ -46,8 +46,7 @@ class Location {
       type: "isbike",
       lat: 40.96330,
       lng: 29.06631,
-      address:
-          "Caddebostan, Operatör Cemil Topuzlu Cd. No:136, 34728 Kadıköy/İstanbul",
+      address: "Caddebostan, No:136, 34728 Kadıköy/İstanbul",
       name: "Caddebostan Migros",
       images: [
         Images.location1,

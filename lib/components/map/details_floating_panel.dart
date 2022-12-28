@@ -38,27 +38,27 @@ class DetailsFloatingPanel extends StatelessWidget {
         color: AppColors.backgroundColor1,
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 30,
-              height: 5,
-              decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.all(Radius.circular(12.0))),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 30,
+            height: 5,
+            decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.all(Radius.circular(12.0))),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -66,7 +66,7 @@ class DetailsFloatingPanel extends StatelessWidget {
                       style: TextStyles.profileBoldTextStyle,
                     ),
                     SizedBox(
-                      width: 200,
+                      width: 190,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -95,24 +95,34 @@ class DetailsFloatingPanel extends StatelessWidget {
                       onPressed: () {
                         changeDetails(false, location);
                       },
-                      iconSize: 30,
+                      iconSize: 25,
                       color: Colors.grey,
                       icon: Icon(Icons.cancel),
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 10,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
                 ),
-                Text(
+                child: Text(
                   location.address,
                   maxLines: 2,
                   style: TextStyle(fontWeight: FontWeight.w300),
                 ),
-                previousDestination != null &&
-                        previousDestination.lat == location.lat &&
-                        previousDestination.lng == location.lng
-                    ? OutlinedButton.icon(
+              ),
+              previousDestination != null &&
+                      previousDestination.lat == location.lat &&
+                      previousDestination.lng == location.lng
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: OutlinedButton.icon(
                         style: OutlinedButton.styleFrom(
                           backgroundColor: AppColors.deleteButtonColor,
                         ),
@@ -129,8 +139,13 @@ class DetailsFloatingPanel extends StatelessWidget {
                               color: Colors.white,
                               fontSize: 20,
                             )),
-                      )
-                    : OutlinedButton.icon(
+                      ),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: OutlinedButton.icon(
                         style: OutlinedButton.styleFrom(
                           backgroundColor: AppColors.navbarBackgroundColor,
                         ),
@@ -148,42 +163,42 @@ class DetailsFloatingPanel extends StatelessWidget {
                               fontSize: 20,
                             )),
                       ),
-                SizedBox(height: 10),
-                DefaultTabController(
-                  length: 3,
-                  initialIndex: 0,
-                  child: Column(
-                    children: [
-                      TabBar(
-                        labelColor: AppColors.loginButtonColor,
-                        unselectedLabelColor: Colors.black,
-                        tabs: [
-                          Tab(text: 'Photos'),
-                          Tab(text: 'Reviews'),
-                          Tab(text: 'Events'),
-                        ],
-                      ),
-                      Container(
-                        height: 590,
-                        child: TabBarView(children: <Widget>[
-                          PhotoTab(images: location.images),
-                          CommentTab(
-                            comments: location.comments,
-                            locationName: location.name,
-                          ),
-                          EventTab(
-                            events: location.events,
-                            location: location,
-                          ),
-                        ]),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
+                    ),
+              SizedBox(height: 10),
+              DefaultTabController(
+                length: 3,
+                initialIndex: 0,
+                child: Column(
+                  children: [
+                    TabBar(
+                      labelColor: AppColors.loginButtonColor,
+                      unselectedLabelColor: Colors.black,
+                      tabs: [
+                        Tab(text: 'Photos'),
+                        Tab(text: 'Reviews'),
+                        Tab(text: 'Events'),
+                      ],
+                    ),
+                    Container(
+                      height: 590,
+                      child: TabBarView(children: <Widget>[
+                        PhotoTab(images: location.images),
+                        CommentTab(
+                          comments: location.comments,
+                          locationName: location.name,
+                        ),
+                        EventTab(
+                          events: location.events,
+                          location: location,
+                        ),
+                      ]),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

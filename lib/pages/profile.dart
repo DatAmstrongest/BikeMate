@@ -48,33 +48,50 @@ class Profile extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {
                         showModalBottomSheet<void>(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
                         backgroundColor: AppColors.navbarBackgroundColor,
                         context: context,
                         builder: (BuildContext context) {
                         return SizedBox(
-                            height: 200,
+                            height: 150,
                             child: Center(
                                child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
+                                    Text('Change your picture:', style: TextStyles.sheetTextStyle,),
                                     Text('                ', style: TextStyles.profileTextStyle,),
-                                    Text('Change your picture:', style: TextStyles.profileTextStyle,),
+                                    Container(
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
                                     IconButton(
-                                      icon: Icon(Icons.camera_alt_outlined,color:AppColors.addImageBackgroundColor),
+                                      icon: Icon(Icons.camera_alt_outlined,color:AppColors.addImageBackgroundColor,size: 35),
                                       onPressed: () => Navigator.pop(context),
                                       style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
                                        ),
+                                          SizedBox(
+                                            width: 25,
+                                          ),
                                     IconButton(
-                                        icon: Icon(Icons.image,color:AppColors.addImageBackgroundColor),
+                                        icon: Icon(Icons.image,color:AppColors.addImageBackgroundColor,size: 35),
                                         onPressed: () => Navigator.pop(context),
                                         style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
                                     ),
+                                          SizedBox(
+                                            width: 25,
+                                          ),
                                     IconButton(
-                                        icon: Icon(Icons.delete, color:AppColors.addImageBackgroundColor),
+                                        icon: Icon(Icons.delete, color:AppColors.addImageBackgroundColor,size:35),
                                        onPressed: () => Navigator.pop(context),
                                       style: IconButton.styleFrom(foregroundColor: AppColors.addImageBackgroundColor)
                                       ),
+                                         ],
+                                      ),
+                                    ),
                                     ],
                                   ),
                                 ),
@@ -108,39 +125,54 @@ class Profile extends StatelessWidget {
                   width: 200,
                 ),
                 IconButton(icon: Icon(Icons.edit_outlined),
-                onPressed: (){
-                  showModalBottomSheet<void>(
-                    backgroundColor: AppColors.navbarBackgroundColor,
-                    context: context,
-                    builder: (BuildContext context) {
-                      return SizedBox(
-                        height: 200,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                               Text('                ', style: TextStyles.profileTextStyle,),
-                               Text('Enter your name:', style: TextStyles.profileTextStyle,),
-                               Text('                ', style: TextStyles.profileTextStyle,),
-                               Text('________________________________', style: TextStyles.profileTextStyle,),
-                              ElevatedButton(
-                                child: Text('  Save  ', style: TextStyles.profileTextStyle,),
-                                onPressed: () => Navigator.pop(context),
-                                style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
-                              ),
-                              ElevatedButton(
-                                child: Text('Cancel', style: TextStyles.profileTextStyle,),
-                                onPressed: () => Navigator.pop(context),
-                                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
-                              ),
-                            ],
+                  onPressed: (){
+                    showModalBottomSheet<void>(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      backgroundColor: AppColors.navbarBackgroundColor,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SizedBox(
+                          height: 200,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                //Text('                ', style: TextStyles.profileTextStyle,),
+                                Text('Enter your name:', style: TextStyles.sheetTextStyle,),
+                                Text('                ', style: TextStyles.profileTextStyle,),
+                                Text('|________________________', style: TextStyles.sheetTextStyle,),
+                                Text('                                ', style: TextStyles.profileTextStyle,),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                ElevatedButton(
+                                    child: Text('  Save  ', style: TextStyles.profileTextStyle,),
+                                    onPressed: () => Navigator.pop(context),
+                                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
+                                ),
+                                      SizedBox(
+                                        width: 25,
+                                      ),
+                                  ElevatedButton(
+                                    child: Text('Cancel', style: TextStyles.profileTextStyle,),
+                                    onPressed: () => Navigator.pop(context),
+                                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
+                                ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                },),
+                        );
+                      },
+                    );
+                  },),
               ],
             ),
             SizedBox(

@@ -83,7 +83,7 @@ class _PostState extends State<Post> {
             style: TextStyles.homepageBoldTextStyle,
             children: <TextSpan>[
               TextSpan(
-                text: 'Lorem ipsum dolor sit amet, consec... ',
+                text: 'This is a great event for bike lovers! I love ... ',
                 style: TextStyles.homepageTextStyle,
               ),
               TextSpan(

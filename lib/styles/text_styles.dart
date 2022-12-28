@@ -30,6 +30,13 @@ class TextStyles {
     ),
   );
 
+  static final sheetTextStyle = GoogleFonts.nunito(
+    fontSize: 16,
+    textStyle: const TextStyle(
+      color: AppColors.popupBackgroundColor,
+    ),
+  );
+
   static final frontLinkStyle = GoogleFonts.nunito(
     fontSize: 16,
     textStyle: const TextStyle(

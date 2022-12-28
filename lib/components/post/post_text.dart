@@ -16,7 +16,7 @@ class PostText extends StatelessWidget {
             text: TextSpan(
               children: <TextSpan>[
                 TextSpan(
-                  text: 'kocmetehan, Nisa, Hasan ',
+                  text: 'kocmetehan, NisaDefneAksu, HasanYılmaz ',
                   style: TextStyles.homepageBoldTextStyle,
                 ),
                 TextSpan(
@@ -32,7 +32,7 @@ class PostText extends StatelessWidget {
                   style: TextStyles.homepageTextStyle,
                 ),
                 TextSpan(
-                  text: 'Caddebost event',
+                  text: 'Caddebostan event',
                   style: TextStyles.homepageBoldTextStyle,
                 )
               ],

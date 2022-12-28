@@ -66,7 +66,22 @@ class Notifications extends StatelessWidget {
           NotificationLike(
             username: "HasanYılmaz",
             postImage: Images.postImage,
-          )
+          ),
+          NotificationLike(
+            username: "NisaDefneAksu",
+            postImage: Images.postImage,
+          ),
+          NotificationInvite(
+            username: "NisaDefneAksu",
+            event: "Bostancı",
+          ),
+          NotificationInvite(
+            username: "BikeLover98",
+            event: "Caddebostan",
+          ),
+          NotificationApproved(
+            username: "BikeLover98",
+          ),
         ],
       ),
     );

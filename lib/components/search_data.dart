@@ -52,11 +52,11 @@ class SearchData extends StatelessWidget {
                 width: 60,
               ),
               Transform(
-                alignment: Alignment.center,
+                alignment: Alignment.topRight,
                 transform: Matrix4.rotationY(math.pi),
                 child: FaIcon(
                   FontAwesomeIcons.commentDots,
-                  size: 45,
+                  size: 27,
                 ),
               ),
             ],

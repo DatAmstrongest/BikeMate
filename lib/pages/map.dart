@@ -158,7 +158,7 @@ class MapState extends State<Map> {
                 }
               })
             },
-            minHeight: isDetails ? 170 : 130,
+            minHeight: isDetails ? 185 : 130,
             maxHeight: 800,
             renderPanelSheet: false,
             panel: isDetails

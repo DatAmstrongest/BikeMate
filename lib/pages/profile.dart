@@ -38,7 +38,7 @@ class Profile extends StatelessWidget {
                 CircleAvatar(
                   radius: 80,
                   backgroundImage:
-                  AssetImage("assets/images/profile/profilePhoto1.jpg"),
+                      AssetImage("assets/images/profile/profilePhoto1.jpg"),
                 ),
                 Positioned(
                   right: 10,
@@ -51,52 +51,75 @@ class Profile extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0),
                           ),
-                        backgroundColor: AppColors.navbarBackgroundColor,
-                        context: context,
-                        builder: (BuildContext context) {
-                        return SizedBox(
-                            height: 150,
-                            child: Center(
-                               child: Column(
+                          backgroundColor: AppColors.navbarBackgroundColor,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SizedBox(
+                              height: 150,
+                              child: Center(
+                                child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
-                                    Text('Change your picture:', style: TextStyles.sheetTextStyle,),
-                                    Text('                ', style: TextStyles.profileTextStyle,),
+                                    Text(
+                                      'Change your picture:',
+                                      style: TextStyles.sheetTextStyle,
+                                    ),
+                                    Text(
+                                      '                ',
+                                      style: TextStyles.profileTextStyle,
+                                    ),
                                     Container(
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         mainAxisSize: MainAxisSize.min,
                                         children: <Widget>[
-                                    IconButton(
-                                      icon: Icon(Icons.camera_alt_outlined,color:AppColors.addImageBackgroundColor,size: 35),
-                                      onPressed: () => Navigator.pop(context),
-                                      style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
-                                       ),
+                                          IconButton(
+                                              icon: Icon(
+                                                  Icons.camera_alt_outlined,
+                                                  color: AppColors
+                                                      .addImageBackgroundColor,
+                                                  size: 35),
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                              style: ElevatedButton.styleFrom(
+                                                  backgroundColor: AppColors
+                                                      .addImageBackgroundColor)),
                                           SizedBox(
                                             width: 25,
                                           ),
-                                    IconButton(
-                                        icon: Icon(Icons.image,color:AppColors.addImageBackgroundColor,size: 35),
-                                        onPressed: () => Navigator.pop(context),
-                                        style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
-                                    ),
+                                          IconButton(
+                                              icon: Icon(Icons.image,
+                                                  color: AppColors
+                                                      .addImageBackgroundColor,
+                                                  size: 35),
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                              style: ElevatedButton.styleFrom(
+                                                  backgroundColor: AppColors
+                                                      .addImageBackgroundColor)),
                                           SizedBox(
                                             width: 25,
                                           ),
-                                    IconButton(
-                                        icon: Icon(Icons.delete, color:AppColors.addImageBackgroundColor,size:35),
-                                       onPressed: () => Navigator.pop(context),
-                                      style: IconButton.styleFrom(foregroundColor: AppColors.addImageBackgroundColor)
-                                      ),
-                                         ],
+                                          IconButton(
+                                              icon: Icon(Icons.delete,
+                                                  color: AppColors
+                                                      .addImageBackgroundColor,
+                                                  size: 35),
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                              style: IconButton.styleFrom(
+                                                  foregroundColor: AppColors
+                                                      .addImageBackgroundColor)),
+                                        ],
                                       ),
                                     ),
-                                    ],
-                                  ),
+                                  ],
                                 ),
-                              );
-                           },
+                              ),
+                            );
+                          },
                         );
                       },
                       icon: const Icon(
@@ -124,8 +147,9 @@ class Profile extends StatelessWidget {
                 SizedBox(
                   width: 200,
                 ),
-                IconButton(icon: Icon(Icons.edit_outlined),
-                  onPressed: (){
+                IconButton(
+                  icon: Icon(Icons.edit_outlined),
+                  onPressed: () {
                     showModalBottomSheet<void>(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
@@ -141,28 +165,50 @@ class Profile extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 //Text('                ', style: TextStyles.profileTextStyle,),
-                                Text('Enter your name:', style: TextStyles.sheetTextStyle,),
-                                Text('                ', style: TextStyles.profileTextStyle,),
-                                Text('|________________________', style: TextStyles.sheetTextStyle,),
-                                Text('                                ', style: TextStyles.profileTextStyle,),
+                                Text(
+                                  'Enter your name:',
+                                  style: TextStyles.sheetTextStyle,
+                                ),
+                                Text(
+                                  '                ',
+                                  style: TextStyles.profileTextStyle,
+                                ),
+                                Text(
+                                  '|________________________',
+                                  style: TextStyles.sheetTextStyle,
+                                ),
+                                Text(
+                                  '                                ',
+                                  style: TextStyles.profileTextStyle,
+                                ),
                                 Container(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
-                                ElevatedButton(
-                                    child: Text('  Save  ', style: TextStyles.profileTextStyle,),
-                                    onPressed: () => Navigator.pop(context),
-                                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
-                                ),
+                                      ElevatedButton(
+                                          child: Text(
+                                            '  Save  ',
+                                            style: TextStyles.profileTextStyle,
+                                          ),
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          style: ElevatedButton.styleFrom(
+                                              backgroundColor: AppColors
+                                                  .addImageBackgroundColor)),
                                       SizedBox(
                                         width: 25,
                                       ),
-                                  ElevatedButton(
-                                    child: Text('Cancel', style: TextStyles.profileTextStyle,),
-                                    onPressed: () => Navigator.pop(context),
-                                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.addImageBackgroundColor)
-                                ),
+                                      ElevatedButton(
+                                          child: Text(
+                                            'Cancel',
+                                            style: TextStyles.profileTextStyle,
+                                          ),
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          style: ElevatedButton.styleFrom(
+                                              backgroundColor: AppColors
+                                                  .addImageBackgroundColor)),
                                     ],
                                   ),
                                 ),
@@ -172,7 +218,8 @@ class Profile extends StatelessWidget {
                         );
                       },
                     );
-                  },),
+                  },
+                ),
               ],
             ),
             SizedBox(
@@ -272,39 +319,39 @@ class Profile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: newArr
                       .map((e) => Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 1,
-                          right: 1,
-                          bottom: 1,
-                        ),
-                        child: Column(
-                          children: [Images.smallPostImage],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 1,
-                          right: 1,
-                          bottom: 1,
-                        ),
-                        child: Column(
-                          children: [Images.smallPostImage],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 1,
-                          right: 1,
-                          bottom: 1,
-                        ),
-                        child: Column(
-                          children: [Images.smallPostImage],
-                        ),
-                      ),
-                    ],
-                  ))
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 1,
+                                  right: 1,
+                                  bottom: 1,
+                                ),
+                                child: Column(
+                                  children: [Images.smallPostImage],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 1,
+                                  right: 1,
+                                  bottom: 1,
+                                ),
+                                child: Column(
+                                  children: [Images.smallPostImage],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 1,
+                                  right: 1,
+                                  bottom: 1,
+                                ),
+                                child: Column(
+                                  children: [Images.smallPostImage],
+                                ),
+                              ),
+                            ],
+                          ))
                       .toList(),
                 ),
               ),

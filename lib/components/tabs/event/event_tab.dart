@@ -18,7 +18,7 @@ class EventTab extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 530,
+          height: 500,
           padding: EdgeInsets.only(
             top: 10,
           ),

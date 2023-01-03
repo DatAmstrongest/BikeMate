@@ -36,4 +36,5 @@ class AppColors {
   static const sendTextButtonColor = Color.fromRGBO(2, 232, 147, 1);
   static const confirmButtonColor = Color.fromRGBO(2, 232, 147, 1);
   static const deleteButtonColor = Color.fromRGBO(52, 191, 209, 1);
+  static const cancelButtonColor = Color.fromRGBO(208, 85, 77, 1);
 }

@@ -13,10 +13,9 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final newArr = [
-      [1, 2],
-      [2, 3],
-      [3, 4],
-      [6, 7],
+      [Images.postPhoto1, Images.postPhoto2, Images.postPhoto3],
+      [Images.postPhoto4, Images.postPhoto5, Images.postPhoto6],
+      [Images.postPhoto7, Images.postPhoto8, Images.postPhoto9],
     ];
     return Scaffold(
       backgroundColor: AppColors.backgroundColor1,
@@ -310,50 +309,51 @@ class Profile extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10),
-            SizedBox(height: 10),
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: newArr
-                      .map((e) => Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 1,
-                                  right: 1,
-                                  bottom: 1,
-                                ),
-                                child: Column(
-                                  children: [Images.smallPostImage],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 1,
-                                  right: 1,
-                                  bottom: 1,
-                                ),
-                                child: Column(
-                                  children: [Images.smallPostImage],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 1,
-                                  right: 1,
-                                  bottom: 1,
-                                ),
-                                child: Column(
-                                  children: [Images.smallPostImage],
-                                ),
-                              ),
-                            ],
-                          ))
-                      .toList(),
-                ),
+            DefaultTabController(
+              length: 2,
+              initialIndex: 0,
+              child: Column(
+                children: [
+                  TabBar(
+                    labelColor: AppColors.loginButtonColor,
+                    unselectedLabelColor: Colors.black,
+                    tabs: [
+                      Tab(icon: Icon(Icons.grid_on)),
+                      Tab(
+                        icon: Icon(Icons.location_on),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 346,
+                    child: TabBarView(
+                      children: [
+                        SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: newArr
+                                .map((e) => Row(
+                                      children: [
+                                        Column(
+                                          children: [e[0]],
+                                        ),
+                                        Column(
+                                          children: [e[1]],
+                                        ),
+                                        Column(
+                                          children: [e[2]],
+                                        ),
+                                      ],
+                                    ))
+                                .toList(),
+                          ),
+                        ),
+                        Text("Metehan")
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

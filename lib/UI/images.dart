@@ -25,17 +25,25 @@ class Images {
   );
 
   static Widget belturLogo = Container(
-      child: SvgPicture.asset(
-    path + "logos/" + "belturLogo.svg",
-    fit: BoxFit.fill,
-  ));
+    child: SvgPicture.asset(
+      path + "logos/" + "belturLogo.svg",
+      height: 100,
+      fit: BoxFit.contain,
+    ),
+    height: 100,
+    width: 100,
+  );
 
   static Widget disabledBelturLogo = Container(
-      child: SvgPicture.asset(
-    color: Colors.black,
-    path + "logos/" + "belturLogo.svg",
-    fit: BoxFit.fill,
-  ));
+    child: SvgPicture.asset(
+      color: Colors.black,
+      path + "logos/" + "belturLogo.svg",
+      height: 100,
+      fit: BoxFit.contain,
+    ),
+    height: 100,
+    width: 100,
+  );
 
   static Widget isbikeLogo = Image.asset(
     path + "logos/" + "isbikeLogo.png",
@@ -119,9 +127,72 @@ class Images {
   );
   static Widget smallPostImage = Image.asset(
     path + "smallPostPhoto.png",
-    width: 136,
-    height: 136,
+    width: 138,
+    height: 138,
     fit: BoxFit.fill,
+  );
+
+  static Widget postPhoto1 = Image.asset(
+    path + "post/" + "postPhoto1.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto2 = Image.asset(
+    path + "post/" + "postPhoto2.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto3 = Image.asset(
+    path + "post/" + "postPhoto3.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto4 = Image.asset(
+    path + "post/" + "postPhoto4.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto5 = Image.asset(
+    path + "post/" + "postPhoto5.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto6 = Image.asset(
+    path + "post/" + "postPhoto6.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto7 = Image.asset(
+    path + "post/" + "postPhoto7.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto8 = Image.asset(
+    path + "post/" + "postPhoto8.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
+  );
+
+  static Widget postPhoto9 = Image.asset(
+    path + "post/" + "postPhoto9.jpg",
+    width: 138,
+    height: 138,
+    fit: BoxFit.contain,
   );
 
   //****** Locations ******//

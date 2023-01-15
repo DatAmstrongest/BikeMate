@@ -13,10 +13,9 @@ class OthersProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final newArr = [
-      [1, 2],
-      [2, 3],
-      [3, 4],
-      [6, 7],
+      [Images.postPhoto1, Images.postPhoto2, Images.postPhoto3],
+      [Images.postPhoto4, Images.postPhoto5, Images.postPhoto6],
+      [Images.postPhoto7, Images.postPhoto8, Images.postPhoto9],
     ];
 
     return Scaffold(
@@ -198,35 +197,14 @@ class OthersProfile extends StatelessWidget {
                     children: newArr
                         .map((e) => Row(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 1,
-                                    right: 1,
-                                    bottom: 1,
-                                  ),
-                                  child: Column(
-                                    children: [Images.smallPostImage],
-                                  ),
+                                Column(
+                                  children: [e[0]],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 1,
-                                    right: 1,
-                                    bottom: 1,
-                                  ),
-                                  child: Column(
-                                    children: [Images.smallPostImage],
-                                  ),
+                                Column(
+                                  children: [e[1]],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 1,
-                                    right: 1,
-                                    bottom: 1,
-                                  ),
-                                  child: Column(
-                                    children: [Images.smallPostImage],
-                                  ),
+                                Column(
+                                  children: [e[2]],
                                 ),
                               ],
                             ))

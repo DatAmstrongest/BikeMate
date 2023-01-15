@@ -41,7 +41,6 @@ class Welcome extends StatelessWidget {
                     height: 50,
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        side: const BorderSide(width: 1),
                         backgroundColor: AppColors.loginButtonColor,
                       ),
                       child: Text("Login", style: TextStyles.frontButtonStyle),

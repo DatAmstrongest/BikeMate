@@ -22,7 +22,7 @@ class CommentTab extends StatelessWidget {
           height: 10,
         ),
         Container(
-          height: 500,
+          height: 480,
           child: ListView.builder(
             // Let the ListView know how many items it needs to build.
             itemCount: comments.length,

@@ -209,7 +209,7 @@ class _CollapsedPanelState extends State<CollapsedPanel> {
                     showIsbikes ? Images.isbikeLogo : Images.disabledIsbikeLogo,
               ),
               IconButton(
-                iconSize: 40,
+                iconSize: 50,
                 onPressed: () async {
                   showBelturs = !showBelturs;
                   if (showBelturs) {

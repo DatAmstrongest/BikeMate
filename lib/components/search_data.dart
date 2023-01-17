@@ -51,14 +51,6 @@ class SearchData extends StatelessWidget {
               SizedBox(
                 width: 60,
               ),
-              Transform(
-                alignment: Alignment.topRight,
-                transform: Matrix4.rotationY(math.pi),
-                child: FaIcon(
-                  FontAwesomeIcons.commentDots,
-                  size: 27,
-                ),
-              ),
             ],
           ),
         )

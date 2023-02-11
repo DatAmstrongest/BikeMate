@@ -44,48 +44,27 @@ Features of the application:
 
 ## Screenshots
 
-![Walkthrough Page](./images/img1.png)
-_Walkthrough Page_
-![Welcome Page](./images/img2.png)
-_Welcome Page_
-![Login Page](./images/img3.png)
-_Login Page_
-![Signup Page](./images/img4.png)
-_Signup Page_
-![Home Page](./images/img5.png)
-_Home Page_
-![Event Page](./images/img6.png)
-_Event Page_
-![Event Page With Icons On](./images/img7.png)
-_Event Page With Icons On_
-![Page to Search Biking, Food and Repair Stations](./images/img8.png)
-_Page to Search Biking, Food and Repair Stations_
-![Photos of the Biking Location](./images/img9.png)
-_Photos of the Biking Location_
-![Reviews on Biking Location](./images/img10.png)
-_Reviews on Biking Location_
-![Events on Biking Location](./images/img11.png)
-_Events on Biking Location_
-![Details About the Event](./images/img12.png)
-_Details About the Event_
-![Event Creation Page](./images/img13.png)
-_Event Creation Page_
-![Make Review Page](./images/img14.png)
-_Make Review Page_
-![Notifications Page](./images/img15.png)
-_Notifications Page_
-![Profile Page with Photos](./images/img16.png)
-_Profile Page with Photos_
-![Profile Page with Previous and Current Events](./images/img17.png)
-_Profile Page with Previous and Current Events_
-![Editing Username](./images/img18.png)
-_Editing Username_
-![Changing Profile Photo](./images/img19.png)
-_Changing Profile Photo_
-![Other Users Profiles](./images/img20.png)
-_Other Users Profiles_
-![Search Page](./images/img21.png)
-_Search Page_
+![Walkthrough Page](./images/img1.png "Walkthrough Page")
+![Welcome Page](./images/img2.png "Welcome Page")
+![Login Page](./images/img3.png "Login Page")
+![Signup Page](./images/img4.png "Signup Page")
+![Home Page](./images/img5.png "Home Page")
+![Event Page](./images/img6.png "Event Page")
+![Event Page With Icons On](./images/img7.png "Event Page With Icons On")
+![Page to Search Biking, Food and Repair Stations](./images/img8.png "Page to Search Biking, Food and Repair Stations")
+![Photos of the Biking Location](./images/img9.png "Photos of the Biking Location")
+![Reviews on Biking Location](./images/img10.png "Reviews on Biking Location")
+![Events on Biking Location](./images/img11.png "Events on Biking Location")
+![Details About the Event](./images/img12.png "Details About the Event")
+![Event Creation Page](./images/img13.png "Event Creation Page")
+![Make Review Page](./images/img14.png "Make Review Page")
+![Notifications Page](./images/img15.png "Notifications Page")
+![Profile Page with Photos](./images/img16.png "Profile Page with Photos")
+![Profile Page with Previous and Current Events](./images/img17.png "Profile Page with Previous and Current Events")
+![Editing Username](./images/img18.png "Editing Username")
+![Changing Profile Photo](./images/img19.png "Changing Profile Photo")
+![Other Users Profiles](./images/img20.png "Other Users Profiles")
+![Search Page](./images/img21.png "Search Page")
 
 ## Setup
 
